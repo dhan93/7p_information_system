@@ -1,14 +1,10 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 @font-face {
   font-family: 'icomoon';
   src:  url('/fonts/icomoon.eot?bn0nil');
   src:  url('/fonts/icomoon.eot?bn0nil#iefix') format('embedded-opentype'),
-        url('/fonts/icomoon.ttf?bn0nil') format('truetype'),
-        url('/fonts/icomoon.woff?bn0nil') format('woff'),
-        url('/fonts/icomoon.svg?bn0nil#icomoon') format('svg');
+    url('/fonts/icomoon.ttf?bn0nil') format('truetype'),
+    url('/fonts/icomoon.woff?bn0nil') format('woff'),
+    url('/fonts/icomoon.svg?bn0nil#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

@@ -11,8 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.copy('resources/fonts', 'public/fonts');
 mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
 ]);
+mix.css('resources/css/webicon.css', 'public/css/app.css');
