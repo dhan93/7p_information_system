@@ -18,11 +18,11 @@
   {{-- <script src="{{ (env('APP_ENV') === 'development') ? mix('js/app.js') : asset('js/app.js') }}"></script> --}}
 </head>
 <body class="flex flex-col w-screen min-h-screen font-sans antialiased text-gray-600" x-data="{ leftNavOpen: false }">
-  <header class="flex flex-row py-3 text-3xl text-pink-600 bg-pink-100 bg-gradient-to-br from-pink-300 via-pink-300 to-pink-400">
-    <nav class="flex items-center mx-3 align-bottom">
+  <header class="grid grid-cols-5 py-3 text-3xl text-pink-600 bg-pink-100 bg-gradient-to-br from-pink-300 via-pink-300 to-pink-400">
+    <nav class="items-center mx-3 align-bottom">
       <a href="#" class="icon-menu" x-on:click="leftNavOpen = ! leftNavOpen"></a>
     </nav>
-    <div class="flex-grow mx-3 font-mono">
+    <div class="col-span-3 mx-3 font-mono">
       <picture class="w-full">
         <source srcset="{{ asset('images/logo_7_Perempuan_putih.webp') }}" type="image/webp">
         <source srcset="{{ asset('images/logo_7_Perempuan_putih.png') }}" type="image/png"> 
@@ -30,16 +30,16 @@
       </picture>
       {{-- Sistem Informasi 7P --}}
     </div>
-    <nav class="flex items-center mx-3 align-bottom">
+    {{-- <nav class="flex items-center mx-3 align-bottom">
       <span class="icon-person"></span>
-    </nav>
+    </nav> --}}
   </header>
 
   <div class="flex flex-col flex-1 md:flex-row bg-gray-50">
     <aside class="w-full px-3 py-2 bg-red-100 shadow-md md:w-3/12 xl:w-2/12" :class="leftNavOpen ? 'md:hidden' : 'hidden md:block'">
       <ul>
         @for ($i = 0; $i < 10; $i++)
-          <li class="text-lg text-center">side menu {{ $i }}</li>
+          <li class="text-lg text-center md:text-left">side menu {{ $i }}</li>
         @endfor
       </ul>
     </aside>
