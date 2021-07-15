@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/e4149d2f77/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/798ab39a56/s7p_is/style.css">
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -36,8 +36,15 @@
   </header>
 
   <div class="flex flex-col flex-1 md:flex-row bg-gray-50">
-    <aside class="w-full px-3 py-2 bg-red-100 shadow-md md:w-3/12 xl:w-2/12" :class="leftNavOpen ? 'md:hidden' : 'hidden md:block'">
-      <ul>
+    <aside class="flex flex-col-reverse w-full px-3 py-2 bg-red-100 shadow-md md:flex-col md:w-3/12 2xl:w-2/12" :class="leftNavOpen ? 'md:hidden' : 'hidden md:block'">
+      <section class="flex flex-row p-2 mt-2 bg-pink-200 rounded-md shadow-inner md:mt-0">
+        <img class="w-auto h-10 mr-2 bg-white rounded-full" src="{{ asset('images/user-circle-o.svg') }}" alt="">
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold md:leading-4 md:text-base">Nama Lengkap</span>
+          <span class="text-xs font-semibold md:text-sm">status</span>
+        </div>
+      </section>
+      <ul class="md:pl-2">
         @for ($i = 0; $i < 10; $i++)
           <li class="text-lg text-center md:text-left">side menu {{ $i }}</li>
         @endfor
