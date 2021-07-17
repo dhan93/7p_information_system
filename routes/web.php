@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('student.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+  Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
+  Route::resource('schedule', 'App\Http\Controllers\ScheduleController');    
+});
+
 
 require __DIR__.'/auth.php';

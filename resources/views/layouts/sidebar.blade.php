@@ -1,17 +1,17 @@
 @php
   $menus = [
     ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
-    ['title'=>'Absensi', 'target'=>route('dashboard'), 'icon' => 'icon-event_available'],
-    ['title'=>'Jadwal', 'target'=>route('dashboard'), 'icon' => 'icon-schedule'],
+    ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
+    ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
     ['title'=>'Materi', 'target'=>route('dashboard'), 'icon' => 'icon-book'],
-    ['title'=>'Amalan harian', 'target'=>route('dashboard'), 'icon' => 'icon-check-square-o'],
+    ['title'=>'Amalan Harian & Riyadhoh', 'target'=>route('dashboard'), 'icon' => 'icon-check-square-o'],
     ['title'=>'Penugasan', 'target'=>route('dashboard'), 'icon' => 'icon-assignment'],
     ['title'=>'Post Test', 'target'=>route('dashboard'), 'icon' => 'icon-create'],
     ['title'=>'Bantuan', 'target'=>route('dashboard'), 'icon' => 'icon-contact_support']
   ]
 @endphp
 
-<aside class="flex flex-col-reverse w-full px-3 py-2 bg-red-100 shadow-md md:flex-col md:w-3/12 2xl:w-2/12" :class="leftNavOpen ? 'md:hidden' : 'hidden md:block'">
+<aside class="flex flex-col-reverse w-full px-3 py-2 bg-red-100 shadow-md md:flex-col md:w-3/12 xl:w-2/12" :class="leftNavOpen ? 'md:hidden' : 'hidden md:block'">
   @auth
     <section class="flex flex-col p-2 mt-2 bg-pink-200 rounded-md shadow-inner md:mt-0 md:mb-2">
       <div class="flex flex-row w-full cursor-pointer" x-on:click="profileMenuOpen = ! profileMenuOpen">
