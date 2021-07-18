@@ -1,23 +1,23 @@
 <html lang="en">
-<head>
+<head class="w-screen">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('page_title'){{ config('app.name', 'Laravel') }}</title>
+  <title>@yield('page_title') - {{ config('app.name', 'Laravel') }}</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/f727c0605b/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/7d372d564a/s7p_is/style.css">
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
   {{-- <script src="{{ (env('APP_ENV') === 'development') ? mix('js/app.js') : asset('js/app.js') }}"></script> --}}
 </head>
-<body class="flex flex-col w-screen min-h-screen font-sans antialiased text-gray-600" x-data="{ leftNavOpen: false, profileMenuOpen: false }">
+<body class="flex flex-col w-full min-h-screen font-sans antialiased text-gray-600" x-data="{ leftNavOpen: false, profileMenuOpen: false }">
   <header class="grid grid-cols-5 py-3 text-3xl text-pink-600 bg-pink-100 bg-gradient-to-br from-pink-300 via-pink-300 to-pink-400">
     <nav class="items-center mx-3 align-bottom">
       <a href="#" class="icon-menu" x-on:click="leftNavOpen = ! leftNavOpen"></a>
@@ -35,7 +35,7 @@
   <div class="flex flex-col flex-1 md:flex-row bg-gray-50">
     @include('layouts.sidebar')
     <main class="flex-grow px-5 py-2">
-      <h1 class="mb-4 text-2xl text-center">
+      <h1 class="mb-4 text-3xl text-center">
         @yield('page_title')
       </h1>
       <div class="flex flex-col w-full mx-auto mb-4 sm:flex-row md:w-4/5 lg:2/3 xl:w-1/2">
@@ -49,7 +49,6 @@
           <option value="s7p4">Sekolah 7 Perempuan Season 4</option>
         </select>
       </div>
-      
       @yield('main')
     </main>
   </div>
