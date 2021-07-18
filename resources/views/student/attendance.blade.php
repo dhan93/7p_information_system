@@ -20,7 +20,7 @@
     <template x-if="status=='true'">
       <div class="col-span-12 mt-2">
         <x-label for="attendance_time" value="Jam masuk" class="w-full" />
-        <x-input type="time" name="attendance_time" class="w-full mb-2" value="19:45" />
+        <x-input type="time" name="attendance_time" class="w-full mb-2" value="19:45" required/>
       {{-- sampai selesai? ( jika hadir ) --}}
         <x-label value="Hadir sampai selesai" class="" />
         <x-radio :model=false name="full_attendance" class="" label="sampai selesai" id="full_yes" :value=true />
@@ -31,7 +31,7 @@
     <template x-if="status=='false'">
       <div class="col-span-12 mt-2">
         <x-label for="absence_reason" value="Alasan tidak hadir" class="w-full" />
-        <textarea name="absence_reason" rows="2" class="w-full"></textarea>
+        <x-textarea name="absence_reason" rows="2" class="w-full" />
       </div>
     </template>
     <div class="col-span-12">
