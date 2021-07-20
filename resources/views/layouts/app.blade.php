@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/ed39754229/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/23575b577d/s7p_is/style.css">
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,12 +35,12 @@
   <div class="flex flex-col flex-1 md:flex-row bg-gray-50">
     @include('layouts.sidebar')
     <main class="flex-grow px-5 py-2">
-      <div class="grid grid-rows-2 lg:grid-cols-2">
-        <h1 class="h-16 mb-2 text-4xl text-center md:mb-4 lg:mb-0 lg:text-left">
+      <div class="grid grid-rows-2 mt-4 lg:grid-rows-1 lg:grid-cols-2">
+        <h1 class="mb-2 text-4xl leading-none text-center lg:mb-0 lg:text-left">
           @yield('page_title')
         </h1>
-        <div class="flex flex-col w-full mx-auto mb-4 lg:mb-0 sm:flex-row md:w-4/5 lg:w-full">
-          <x-label for="class_selector" value="Kelas Aktif" class="flex-initial my-auto mr-5 text-left lg:text-right lg:w-1/3" />
+        <div class="flex flex-col items-center w-full mx-auto mb-4 lg:mb-0 sm:flex-row md:w-4/5 lg:w-full">
+          <x-label for="class_selector" value="Kelas Aktif" class="flex-initial mr-5 text-left lg:text-right lg:w-1/3" />
           {{-- <svg class="absolute w-2 h-2 m-4 pointer-events-none top-3 right-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg> --}}
           <select 
             name="class_selector" 
