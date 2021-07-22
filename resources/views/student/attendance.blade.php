@@ -3,8 +3,7 @@
 @section('page_title', 'Absensi Siswa')
 
 @section('main')
-<x-card class="w-full">
-  <h2 class="mb-4 text-xl text-center" >Lapor absensi</h2>
+<x-card class="w-full" title="Lapor Absensi">
   <form class="grid grid-cols-12" x-data="{status: ''}" action="{{route('attendance.store')}}" method="POST">
     @csrf
     {{-- list judul materi [ tanggal, judul, pemateri ] --}}
@@ -40,8 +39,7 @@
   </form>
 </x-card>
 
-<x-card class="w-full">
-  <h2 class="mb-4 text-xl text-center" >Rekap absensi</h2>
+<x-card class="w-full" title="Rekap Absensi">
   <table class="max-w-5xl mx-auto table-auto">
     <thead class="justify-between">
       <tr class="bg-green-600">
