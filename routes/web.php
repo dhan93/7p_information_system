@@ -25,6 +25,8 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
   Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
   Route::resource('schedule', 'App\Http\Controllers\ScheduleController');    
+  Route::resource('lecture', 'App\Http\Controllers\LectureController');    
+  Route::resource('daily_activity', 'App\Http\Controllers\DailyActivityController');    
 });
 
 

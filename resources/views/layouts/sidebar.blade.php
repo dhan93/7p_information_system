@@ -3,8 +3,8 @@
     ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
     ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
     ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
-    ['title'=>'Materi', 'target'=>route('dashboard'), 'icon' => 'icon-book'],
-    ['title'=>'Amalan Harian & Riyadhoh', 'target'=>route('dashboard'), 'icon' => 'icon-check-square-o'],
+    ['title'=>'Materi', 'target'=>route('lecture.index'), 'icon' => 'icon-book'],
+    ['title'=>'Amalan Harian & Riyadhoh', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
     ['title'=>'Penugasan', 'target'=>route('dashboard'), 'icon' => 'icon-assignment'],
     ['title'=>'Post Test', 'target'=>route('dashboard'), 'icon' => 'icon-create'],
     ['title'=>'Bantuan', 'target'=>route('dashboard'), 'icon' => 'icon-contact_support']
@@ -34,9 +34,9 @@
       </ul>
     </section>
   @endauth
-  <ul class="md:pl-2">
+  <ul class="md:pl-2 sm:grid sm:grid-cols-2 md:block">
     @foreach ($menus as $menu)
-      <li class="my-1 text-lg text-center md:text-left">
+      <li class="my-1 text-lg">
         <a href="{{ $menu['target'] }}">
           <span class="{{ $menu['icon'] }}"></span> {{ $menu['title'] }}
         </a>

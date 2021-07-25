@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/c8641d5caa/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/ae3a8ef7a3/s7p_is/style.css">
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -36,7 +36,7 @@
     @include('layouts.sidebar')
     <main class="flex-grow px-5 py-2">
       <div class="grid grid-rows-2 mt-4 mb-4 lg:grid-rows-1 lg:grid-cols-2">
-        <h1 class="mb-2 text-4xl leading-none text-center lg:mb-0 lg:text-left">
+        <h1 class="mb-2 text-3xl leading-none text-center lg:mb-0 lg:text-left">
           @yield('page_title')
         </h1>
         <div class="flex flex-col items-center w-full mx-auto mb-4 lg:mb-0 sm:flex-row md:w-4/5 lg:w-full">

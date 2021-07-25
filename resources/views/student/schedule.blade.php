@@ -11,7 +11,21 @@
         <span class="text-6xl leading-none text-pink-400">02</span>
         <span class="text-lg leading-none">Agustus</span>
       </div>
-      <div class="flex flex-col col-span-1 sm:col-span-3">
+      <div class="flex flex-col col-span-1 text-center sm:col-span-3 sm:text-left">
+        <span class="text-2xl font-semibold leading-tight text-pink-400 md:text-3xl">Judulnya ditulis di sini</span>
+        <span class="font-semibold text-md">bersama Nama Pemateri</span>
+        <span>
+          19.45 wib via <a href="#"><span class="underline">Zoom</span> <span class="icon-launch"></span></a>
+        </span>
+      </div>
+    </div>
+    <div class="grid w-full grid-cols-1 mx-auto mb-4 transform scale-75 opacity-75 sm:grid-cols-4 lg:w-4/5">
+      <div class="flex flex-col col-span-1 mb-2 text-center sm:mb-0">
+        <span class="text-lg leading-none">Senin</span>
+        <span class="text-6xl leading-none text-pink-400">02</span>
+        <span class="text-lg leading-none">Agustus</span>
+      </div>
+      <div class="flex flex-col col-span-1 text-center sm:col-span-3 sm:text-left">
         <span class="text-2xl font-semibold leading-tight text-pink-400 md:text-3xl">Judulnya ditulis di sini</span>
         <span class="font-semibold text-md">bersama Nama Pemateri</span>
         <span>
@@ -63,7 +77,7 @@
             </th>
           </tr>
         </thead>
-        <tbody class="bg-gray-200">
+        <tbody class="text-center bg-gray-200">
           @for ($i = 0; $i < 10; $i++)
             <tr class="bg-white border-b-2 border-gray-200">
               <td class="px-2 py-2">
@@ -79,14 +93,14 @@
                 <span>Nama Pemateri {{ $i+1 }}</span>
               </td>
               <td class="flex flex-col px-2 py-2">
-                <span>
+                <span class="mb-4">
                   <a href="">
-                    <span class="hidden underline sm:inline">Video </span><span class="icon-file-movie-o"></span>
+                    <span class="icon-file-movie-o"></span> <span class="hidden sm:inline">Video</span>
                   </a>
                 </span>
                 <span>
                   <a href="">
-                    <span class="hidden underline sm:inline">Materi </span><span class="icon-file-pdf-o"></span>
+                    <span class="icon-file-pdf-o"></span> <span class="hidden sm:inline">Materi</span>
                   </a>
                 </span>
               </td>
