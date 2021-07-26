@@ -5,6 +5,6 @@
 
 @section('main')
   <x-card>
-    konten
+    content
   </x-card>
 @endsection
