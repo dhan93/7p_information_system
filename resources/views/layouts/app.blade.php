@@ -10,8 +10,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-  <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/ae3a8ef7a3/s7p_is/style.css">
+  
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -55,5 +54,7 @@
     </main>
   </div>
   
+  <!-- icomoon -->
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/bac197a484/s7p_is/style.css">
 </body>
 </html>
