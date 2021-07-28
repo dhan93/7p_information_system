@@ -25,12 +25,19 @@
       <img src="{{ asset('images/logo_7_Perempuan_putih.png') }}" class="w-2/3 h-auto mx-auto" alt="Logo">
     </picture>
     @csrf
+    
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+    <!-- Validation Errors -->
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
     <!-- Email Address -->
     <div>
         <x-label for="email" value="Email" class="text-sm font-medium" />
 
-        <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus />
+        {{-- <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus /> --}}
+        <x-input id="email" class="block w-full mt-1" type="email" name="email" value="admin@admin.com" required autofocus />
     </div>
 
     <!-- Password -->
@@ -40,6 +47,7 @@
         <x-input id="password" class="block w-full mt-1"
                         type="password"
                         name="password"
+                        value="password"
                         required autocomplete="current-password" />
     </div>
 
