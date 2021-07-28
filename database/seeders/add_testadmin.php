@@ -18,6 +18,13 @@ class add_testadmin extends Seeder
         'name' => 'The Admin',
         'email' => 'admin@admin.com',
         'password' => bcrypt('password'),
+        'role_id' => 2,
+      ]);
+      User::create([
+        'name' => 'The Student',
+        'email' => 'student@student.com',
+        'password' => bcrypt('password'),
+        'role_id' => 1,
       ]);
     }
 }

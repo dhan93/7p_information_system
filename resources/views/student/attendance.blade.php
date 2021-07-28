@@ -40,17 +40,17 @@
 </x-card>
 
 <x-card class="w-full" title="Rekap Absensi">
-  <table class="max-w-5xl mx-auto table-auto">
+  <table class="max-w-6xl mx-auto table-auto">
     <thead class="justify-between">
-      <tr class="bg-green-600">
+      <tr class="font-semibold text-white bg-pink-400">
         <th class="px-16 py-2">
-          <span class="font-semibold text-gray-100">Tanggal</span>
+          <span>Tanggal</span>
         </th>
         <th class="px-16 py-2">
-          <span class="font-semibold text-gray-100">Judul materi</span>
+          <span>Judul materi</span>
         </th>
         <th class="px-16 py-2">
-          <span class="font-semibold text-gray-100">Status</span>
+          <span>Status</span>
         </th>
       </tr>
     </thead>

@@ -19,7 +19,7 @@
         <div class="flex flex-col w-full">
           <span class="text-sm font-semibold md:leading-4 md:text-base">{{ Auth::user()->name }}</span>
           <div class="flex flex-row">
-            <span class="flex-auto text-xs font-semibold md:text-sm">siswa</span>
+            <span class="flex-auto text-xs font-semibold md:text-sm">{{ Auth::user()->role->name }}</span>
             <span class="" :class="profileMenuOpen ? 'icon-keyboard_arrow_up' : 'icon-keyboard_arrow_down'"></span>
           </div>
         </div>

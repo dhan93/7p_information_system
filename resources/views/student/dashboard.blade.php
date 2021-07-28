@@ -3,5 +3,5 @@
 @section('page_title', 'Dashboard')
 
 @section('main')
-  content
+  {{ Auth::user()->role->name }}
 @endsection
