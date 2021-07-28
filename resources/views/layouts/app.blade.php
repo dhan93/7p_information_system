@@ -55,6 +55,6 @@
   </div>
   
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/bac197a484/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/86cf5f352f/s7p_is/style.css"><link rel="stylesheet" href="https://i.icomoon.io/public/temp/3783058dd1/s7p_is/style.css">
 </body>
 </html>
