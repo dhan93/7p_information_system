@@ -6,7 +6,7 @@
     ['title'=>'Materi', 'target'=>route('lecture.index'), 'icon' => 'icon-book'],
     ['title'=>'Amalan Harian & Riyadhoh', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
     ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
-    ['title'=>'Post Test', 'target'=>route('dashboard'), 'icon' => 'icon-create'],
+    ['title'=>'Post Test', 'target'=>route('post_test.index'), 'icon' => 'icon-create'],
     ['title'=>'Bantuan', 'target'=>route('dashboard'), 'icon' => 'icon-contact_support']
   ]
 @endphp
