@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('lecture', 'App\Http\Controllers\LectureController');    
   Route::resource('daily_activity', 'App\Http\Controllers\DailyActivityController');    
   Route::resource('assignment', 'App\Http\Controllers\AssignmentController');    
-  Route::resource('post_test', 'App\Http\Controllers\PostTestController');
+  Route::resource('exam', 'App\Http\Controllers\ExamController');
   Route::resource('guide', 'App\Http\Controllers\UserGuideController');
 });
 
