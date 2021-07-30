@@ -4,7 +4,7 @@
 
 @section('main')
 <x-card class="w-full" title="Lapor Absensi">
-  <form class="grid grid-cols-12" x-data="{status: ''}" action="{{route('attendance.store')}}" method="POST">
+  <form class="grid grid-cols-12" x-data="{attendance_status: null}" action="{{route('attendance.store')}}" method="POST">
     @csrf
     {{-- list judul materi [ tanggal, judul, pemateri ] --}}
     <x-label for="topic" value="Judul Materi" class="col-span-12" />
@@ -13,25 +13,27 @@
     </x-select>
     {{-- hadir/tidak --}}
     <x-label value="Status" class="col-span-12 mt-2" />
-    <x-radio model="status" name="status" class="col-span-12" label="hadir" id="status_yes" value="true" />
-    <x-radio model="status" name="status" class="col-span-12" label="tidak hadir" id="status_no" value="false" />
+    <x-radio model="attendance_status" name="status" class="col-span-12" label="hadir" id="status_yes" value="true" />
+    <x-radio model="attendance_status" name="status" class="col-span-12" label="tidak hadir" id="status_no" value="false" />
     {{-- jam masuk ( jika hadir ) --}}
-    <template x-if="status=='true'">
+    <template x-if="attendance_status == 'true'">
       <div class="col-span-12 mt-2">
         <x-label for="attendance_time" value="Jam masuk" class="w-full" />
         <x-input type="time" name="attendance_time" class="w-full mb-2" value="19:45" required/>
-      {{-- sampai selesai? ( jika hadir ) --}}
+        {{-- channel (zoom, youtube live, youtube) --}}
+        {{-- sampai selesai? ( jika hadir ) --}}
         <x-label value="Hadir sampai selesai" class="" />
-        <x-radio :model=false name="full_attendance" class="" label="sampai selesai" id="full_yes" :value=true />
-        <x-radio :model=false name="full_attendance" class="" label="tidak sampai selesai" id="full_no" :value=false />
+        <x-radio name="full_attendance" class="" label="sampai selesai" id="full_yes" value=true />
+        <x-radio name="full_attendance" class="" label="tidak sampai selesai" id="full_no" value=false />
       </div>
     </template>
     {{-- alasan izin ( jika tidak hadir / tidak selesai ) --}}
-    <template x-if="status=='false'">
+    <template x-if="attendance_status == 'false'">
       <div class="col-span-12 mt-2">
         <x-label for="absence_reason" value="Alasan tidak hadir" class="w-full" />
         <x-textarea name="absence_reason" rows="2" class="w-full" />
       </div>
+      {{-- sudah lihat di youtube? --}}
     </template>
     <div class="col-span-12">
       <x-button class="px-3 mt-2 text-center" >Simpan</x-button>
