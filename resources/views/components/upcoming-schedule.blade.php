@@ -4,9 +4,11 @@
     $itemDate = date_create($item['time']);
   @endphp
   <div 
-    class="grid w-full grid-cols-1 mx-auto mb-1 sm:grid-cols-4 lg:w-4/5 shadow hover:shadow-lg rounded-lg py-4
+    class="grid w-full grid-cols-1 mx-auto mb-1 sm:grid-cols-4 lg:w-4/5 shadow hover:shadow-lg rounded-lg py-4 transform transition-all
       @if (!$loop->first)
-        transform scale-75 opacity-75
+        scale-75 opacity-75 hover:opacity-90 hover:scale-90
+      @else
+        scale-90 opacity-95 hover:opacity-100 hover:scale-100
       @endif
     ">
     <div class="flex flex-col col-span-1 mb-2 text-center sm:mb-0">
