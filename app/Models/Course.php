@@ -21,4 +21,9 @@ class Course extends Model
     {
       return $this->belongsToMany(User::class);
     }
+
+    public function schedules()
+    {
+      return $this->hasMany(Schedule::class);
+    }
 }

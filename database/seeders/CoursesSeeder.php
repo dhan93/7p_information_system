@@ -18,13 +18,15 @@ class CoursesSeeder extends Seeder
           'id' => 1,
           'name' => 'Sekolah 7 Perempuan',
           'short_name' => 'S7P',
-          'generation' => 1
+          'generation' => 1,
+          'is_finished' => true,
         ]);
         Course::create([
           'id' => 2,
           'name' => 'Sekolah 7 Perempuan',
           'short_name' => 'S7P',
-          'generation' => 2
+          'generation' => 2,
+          'is_finished' => true,
         ]);
         Course::create([
           'id' => 3,

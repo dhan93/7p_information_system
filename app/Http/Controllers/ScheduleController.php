@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Schedule;
 
 class ScheduleController extends Controller
 {
@@ -13,7 +15,20 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-      return view('student.schedule');
+      if (Auth::user()->default_course) {
+        $defaultCourse = Auth::user()->default_course;
+      }
+      $schedules = Schedule::where('course_id', $defaultCourse)
+        ->orderBy('time', 'desc')
+        ->get();
+
+      $nextSchedules = array_filter(
+        $schedules->toArray(), 
+        function ($schedule) {
+          return $schedule['time'] > date("Y-m-d H:i:s");
+        }
+      );
+      return view('student.schedule', compact('schedules', 'nextSchedules'));
     }
 
     /**
