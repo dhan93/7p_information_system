@@ -13,7 +13,8 @@ class Course extends Model
       'id',
       'name',
       'short_name',
-      'generation'
+      'generation',
+      'is_finished',
     ];
 
     public function users ()
