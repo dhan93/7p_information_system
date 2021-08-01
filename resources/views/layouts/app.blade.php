@@ -42,13 +42,14 @@
           <div class="flex flex-col items-center w-full mx-auto mb-4 lg:mb-0 sm:flex-row md:w-4/5 lg:w-full">
             <x-label for="class_selector" value="Kelas aktif:" class="flex-initial text-left md:mr-5 lg:text-right lg:w-1/3" />
             {{-- <svg class="absolute w-2 h-2 m-4 pointer-events-none top-3 right-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg> --}}
-            <select 
+            {{-- <select 
               name="class_selector" 
               id="class_selector" 
               class="flex-grow h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-lg appearance-none lg:flex-initial hover:border-gray-400 focus:outline-none lg:w-2/3"
             > 
               <option value="s7p4">Sekolah 7 Perempuan Season 4</option>
-            </select>
+            </select> --}}
+            <x-course-selector></x-course-selector>
           </div>
         @endif
       </div>
@@ -57,6 +58,6 @@
   </div>
   
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/47515f9823/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/a8e7ccbaf4/s7p_is/style.css">
 </body>
 </html>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRolesTable extends Migration
+class CreateCourseUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AddRolesTable extends Migration
      */
     public function up()
     {
-      Schema::create('roles', function (Blueprint $table) {
-        $table->tinyInteger('id')->primary();
-        $table->string('name');
-        $table->timestamps();
-      });
+        Schema::create('course_user', function (Blueprint $table) {
+          $table->unsignedInteger('course_id');
+          $table->foreign('course_id')->references('id')->on('courses');
+          $table->foreignId('user_id')->constrained();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class AddRolesTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('roles');
+        Schema::dropIfExists('course_user');
     }
 }

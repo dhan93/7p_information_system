@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\CoursesSeeder;
 use Database\Seeders\add_testadmin;
 use Database\Seeders\insert_admin_and_siswa_roles;
 
@@ -16,8 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       $this->call([
+          CoursesSeeder::class,
           insert_admin_and_siswa_roles::class,
-          add_testadmin::class,
+          add_testadmin::class,          
       ]);
     }
 }

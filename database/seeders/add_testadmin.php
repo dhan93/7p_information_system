@@ -21,7 +21,7 @@ class add_testadmin extends Seeder
         'password' => bcrypt('password'),
         'role_id' => 2,
       ]);
-      User::create([
+      $siswa = User::create([
         'name' => 'The Student',
         'email' => 'student@student.com',
         'phone' => '6282210561661',
@@ -29,5 +29,6 @@ class add_testadmin extends Seeder
         'role_id' => 1,
         'multiple_courses' => true,
       ]);
+      $siswa->courses()->attach([1,4]);
     }
 }
