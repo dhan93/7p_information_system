@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Attendance;
 
 class AttendanceController extends Controller
 {
@@ -13,7 +15,13 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-      return view('student.attendance');
+      // $course = Auth::user()->default_course;
+      $attendances = Attendance::with(['schedule' => function ($query) {
+          $query->where('course_id', Auth::user()->default_course);
+        }])->get();
+
+      return $attendances;
+      // return view('student.attendance');
     }
 
     /**

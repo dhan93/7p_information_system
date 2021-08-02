@@ -28,4 +28,9 @@ class Attendance extends Model
     {
       return $this->belongsTo(Schedule::class);
     }
+
+    public function course()
+    {
+      return $this->hasManyThrough(Course::class, Schedule::class);
+    }
 }
