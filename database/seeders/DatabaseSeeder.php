@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attendance;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CoursesSeeder;
 use Database\Seeders\add_testadmin;
@@ -20,7 +21,8 @@ class DatabaseSeeder extends Seeder
           CoursesSeeder::class,
           ScheduleSeeder::class,
           insert_admin_and_siswa_roles::class,
-          add_testadmin::class,          
+          add_testadmin::class,   
+          AttendanceSeeder::class,       
       ]);
     }
 }
