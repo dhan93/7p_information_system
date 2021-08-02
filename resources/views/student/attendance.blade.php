@@ -42,7 +42,7 @@
 </x-card>
 
 <x-card class="w-full" title="Rekap Absensi">
-  <table class="max-w-6xl mx-auto table-auto">
+  <table class="max-w-6xl mx-auto table-auto xl:max-w-7xl">
     <thead class="justify-between">
       <tr class="font-semibold text-white bg-pink-400">
         <th class="px-16 py-2">
@@ -57,24 +57,29 @@
       </tr>
     </thead>
     <tbody class="bg-gray-200">
-      @for ($i = 0; $i < 10; $i++)
+      @foreach ($attendances as $attendance)
         <tr class="bg-white border-b-2 border-gray-200">
           <td class="px-16 py-2">
-            <span>{{ $i+1 }}-Juli-2021</span>
+            <span>{{ date_format(date_create($attendance->schedule->time), 'd M Y') }}</span>
           </td>
           <td class="px-16 py-2">
-            <span>Judul materi ke {{ $i+1 }}</span>
+            <span>{{ $attendance->schedule->sub_topic }}</span>
           </td>
-          <td class="px-16 py-2">
-            <span>
-                @if ($i % 4 == 0)
-                tidak
+          <td class="px-16 py-2 font-semibold">
+            @if ($attendance->status == "hadir")
+              <span class="text-green-500">    
+            @else
+              @if ($attendance->status == "izin")
+                <span class="text-blue-400">
+              @else
+                <span class="text-red-400">
               @endif
-              hadir
+            @endif            
+              {{ $attendance->status }}
             </span>
           </td>
         </tr>
-      @endfor
+      @endforeach
     </tbody>
   </table>
 </x-card>
