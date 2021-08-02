@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
   })->name('home');
   Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
   Route::resource('schedule', 'App\Http\Controllers\ScheduleController');    
-  Route::resource('lecture', 'App\Http\Controllers\LectureController');    
+  Route::resource('module', 'App\Http\Controllers\ModuleController');    
   Route::resource('daily_activity', 'App\Http\Controllers\DailyActivityController');    
   Route::resource('assignment', 'App\Http\Controllers\AssignmentController');    
   Route::resource('exam', 'App\Http\Controllers\ExamController');

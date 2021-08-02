@@ -42,7 +42,7 @@
 </x-card>
 
 <x-card class="w-full" title="Rekap Absensi">
-  <table class="max-w-6xl mx-auto table-auto xl:max-w-7xl">
+  <table class="w-10/12 mx-auto table-auto">
     <thead class="justify-between">
       <tr class="font-semibold text-white bg-pink-400">
         <th class="px-16 py-2">
@@ -59,20 +59,20 @@
     <tbody class="bg-gray-200">
       @foreach ($attendances as $attendance)
         <tr class="bg-white border-b-2 border-gray-200">
-          <td class="px-16 py-2">
+          <td class="px-2 py-2 text-center">
             <span>{{ date_format(date_create($attendance->schedule->time), 'd M Y') }}</span>
           </td>
-          <td class="px-16 py-2">
+          <td class="px-2 py-2">
             <span>{{ $attendance->schedule->sub_topic }}</span>
           </td>
-          <td class="px-16 py-2 font-semibold">
+          <td class="px-10 py-1 font-semibold text-center text-white">
             @if ($attendance->status == "hadir")
-              <span class="text-green-500">    
+              <span class="block w-full py-1 bg-green-500 rounded-full">
             @else
               @if ($attendance->status == "izin")
-                <span class="text-blue-400">
+                <span class="block w-full py-1 bg-blue-400 rounded-full">
               @else
-                <span class="text-red-400">
+                <span class="block w-full py-1 bg-red-400 rounded-full">
               @endif
             @endif            
               {{ $attendance->status }}

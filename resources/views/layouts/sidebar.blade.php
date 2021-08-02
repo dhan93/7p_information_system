@@ -3,7 +3,7 @@
     ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
     ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
     ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
-    ['title'=>'Materi', 'target'=>route('lecture.index'), 'icon' => 'icon-book'],
+    ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],
     ['title'=>'Amalan Harian & Riyadhoh', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
     ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
     ['title'=>'Post Test', 'target'=>route('exam.index'), 'icon' => 'icon-create'],
