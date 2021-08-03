@@ -16,7 +16,7 @@ class CreateModulesTable extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('schedule_id');
-            $table->string('100');
+            $table->string('title', 100);
             $table->text('attachment');
             $table->enum('type', ['document', 'video', 'audio']);
             $table->timestamps();

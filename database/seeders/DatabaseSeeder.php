@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
           ScheduleSeeder::class,
           insert_admin_and_siswa_roles::class,
           add_testadmin::class,   
-          AttendanceSeeder::class,       
+          AttendanceSeeder::class,
+          ModuleSeeder::class,       
       ]);
     }
 }

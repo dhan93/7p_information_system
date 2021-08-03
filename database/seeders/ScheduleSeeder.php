@@ -19,7 +19,7 @@ class ScheduleSeeder extends Seeder
         'time' => date("Y/m/d H:i:s",mktime(19,45,0,8,1,2021)),
         'topic' => 'Perempuan Sebagai Anak',
         'sub_topic' => 'Syurga Atau Neraka Bagiku',
-        'lecturer' => 'Bunda Konsa'
+        'lecturer' => 'Bunda Khonsa'
       ]);
       Schedule::create([
         'course_id' => '1',
@@ -40,7 +40,7 @@ class ScheduleSeeder extends Seeder
         'time' => date("Y/m/d H:i:s",mktime(19,45,0,8,1,2021)),
         'topic' => 'Perempuan Sebagai Anak',
         'sub_topic' => 'Syurga Atau Neraka Bagiku',
-        'lecturer' => 'Bunda Konsa'
+        'lecturer' => 'Bunda Khonsa'
       ]);
       Schedule::create([
         'course_id' => '3',

@@ -20,7 +20,7 @@ class AttendanceController extends Controller
           $query->where('course_id', Auth::user()->default_course);
         }])->get();
 
-      // return $attendances;
+      return $attendances;
       return view('student.attendance', compact('attendances'));
     }
 

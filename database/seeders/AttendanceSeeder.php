@@ -36,7 +36,7 @@ class AttendanceSeeder extends Seeder
       ]);
       Attendance::create([
         'user_id' => 2,
-        'schedule_id' => 1,
+        'schedule_id' => 4,
         'status' => 'hadir',
         'channel' => 'youtube live',
         'time_in' => date('H:i:s', strtotime('20:45')),

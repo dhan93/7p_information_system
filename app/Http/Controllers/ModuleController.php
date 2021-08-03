@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Module;
+use Illuminate\Support\Facades\Auth;
 
 class ModuleController extends Controller
 {
@@ -13,7 +15,13 @@ class ModuleController extends Controller
      */
     public function index()
     {
-      return view('student.module');
+      $modules = Module::join('schedules', 'modules.schedule_id', '=', 'schedules.id')
+        ->where('schedules.course_id', Auth::user()->default_course)
+        ->where('schedules.time', '<', date("Y-m-d H:i:s"))
+        ->orderBy('schedules.time')
+        ->get();
+      // return $modules;
+      return view('student.module', compact('modules'));
     }
 
     /**

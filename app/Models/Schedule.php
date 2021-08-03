@@ -21,4 +21,9 @@ class Schedule extends Model
     {
       return $this->belongsTo(Course::class);
     }
+
+    public function modules()
+    {
+      return $this->hasMany(Module::class);
+    }
 }
