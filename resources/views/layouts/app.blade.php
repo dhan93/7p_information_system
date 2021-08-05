@@ -58,6 +58,6 @@
   </div>
   
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/7dae3a4f2e/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/9d51840514/s7p_is/style.css">
 </body>
 </html>

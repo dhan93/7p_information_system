@@ -60,10 +60,10 @@
       @foreach ($attendances as $attendance)
         <tr class="bg-white border-b-2 border-gray-200">
           <td class="px-2 py-2 text-center">
-            <span>{{ date_format(date_create($attendance->schedule->time), 'd M Y') }}</span>
+            <span>{{ date_format(date_create($attendance->time), 'd M Y') }}</span>
           </td>
           <td class="px-2 py-2">
-            <span>{{ $attendance->schedule->sub_topic }}</span>
+            <span>{{ $attendance->sub_topic }}</span>
           </td>
           <td class="px-10 py-1 font-semibold text-center text-white">
             @if ($attendance->status == "hadir")

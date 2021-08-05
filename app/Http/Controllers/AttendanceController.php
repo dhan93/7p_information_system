@@ -15,12 +15,12 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-      // $course = Auth::user()->default_course;
-      $attendances = Attendance::with(['schedule' => function ($query) {
-          $query->where('course_id', Auth::user()->default_course);
-        }])->get();
-
-      return $attendances;
+      $attendances = Attendance::join('schedules', 'attendances.schedule_id', '=', 'schedules.id')
+        ->where('course_id', Auth::user()->default_course)
+        ->orderBy('schedules.time')
+        ->get();
+      
+      // return $attendances;
       return view('student.attendance', compact('attendances'));
     }
 
