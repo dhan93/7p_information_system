@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class UserActivity extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-      'id',
-      'activity_group_id',
-      'title'
+      'user_id',
+      'date',
+      'activities',
+      'note',
+      'course_id'
     ];
 
-    public function activityGroup()
+    public function users()
     {
-      return $this->belongsTo(ActivityGroup::class);
+      return $this->belongsTo(User::class);
     }
 }

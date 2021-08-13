@@ -12,7 +12,7 @@
 
 @extends('layouts.app')
 
-@section('page_title', 'Post Test')
+@section('page_title', 'Evaluasi')
 
 @section('main')
 <x-card title="Post Test Peran Sebagai Istri" class="hidden">

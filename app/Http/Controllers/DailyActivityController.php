@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\UserActivity;
+use App\Models\ActivityGroup;
 
 class DailyActivityController extends Controller
 {
@@ -13,7 +16,15 @@ class DailyActivityController extends Controller
      */
     public function index()
     {
-      return view('student.dailyActivity');
+      $userActivities = UserActivity::where('user_id', Auth::user()->id)
+        ->where('course_id', Auth::user()->default_course)
+        ->get();
+
+      $activityGroup = ActivityGroup::where('course_id', Auth::user()->default_course)
+        ->get();
+
+      return compact('activityGroup','userActivities');
+      // return view('student.dailyActivity', compact('activityGroup','userActivities'));
     }
 
     /**

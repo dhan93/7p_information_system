@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitiesTable extends Migration
+class CreateUserActivities extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('user_activities', function (Blueprint $table) {
+            $table->id();
+            $table->json('activities');
+            $table->foreignId('user_id')->constrained();
             $table->unsignedInteger('course_id');
-            $table->string('title', 100);
-            $table->enum('type', ['text', 'checkbox', 'radio']);
-            $table->enum('category', ['Amalan Harian', 'Riyadhoh']);
-            $table->timestamp('effective_date')->nullable();
+            $table->date('date');
+            $table->string('note', 255)->nullable();
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses');
@@ -33,6 +33,6 @@ class CreateActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('user_activities');
     }
 }

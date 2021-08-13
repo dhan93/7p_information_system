@@ -29,6 +29,13 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('course_user');
+        Schema::dropIfExists('modules');
+        Schema::dropIfExists('attendances');
+        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('user_activities');
+        Schema::dropIfExists('activities');
+        Schema::dropIfExists('activity_groups');
         Schema::dropIfExists('courses');
     }
 }

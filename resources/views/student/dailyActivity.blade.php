@@ -26,7 +26,7 @@
 
 @extends('layouts.app')
 
-@section('page_title', 'Amalan Harian & Riyadhoh')
+@section('page_title', 'Amalan Harian')
 
 @section('main')
   <x-card title="Ringkasan Amalan Harian dan Riyadhoh" class="w-full overflow-x-auto">
@@ -41,10 +41,7 @@
               <span>Tanggal</span>
             </th>
             <th class="px-2 py-2">
-              <span>Amalan</span>
-            </th>
-            <th class="px-2 py-2">
-              <span>Riyadhoh</span>
+              <span>Capaian</span>
             </th>
             <th class="px-2 py-2">
               <span>Rincian</span>
@@ -59,9 +56,6 @@
               </td>
               <td class="px-2 py-2">
                 <span>{{ rand(0,40) }}/40</span>
-              </td>
-              <td class="px-2 py-2">
-                <span>{{ rand(0,50) }}/50</span>
               </td>
               <td class="px-2 py-2">
                 <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
