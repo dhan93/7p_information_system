@@ -23,8 +23,8 @@ class DailyActivityController extends Controller
       $activityGroup = ActivityGroup::where('course_id', Auth::user()->default_course)
         ->get();
 
-      return compact('activityGroup','userActivities');
-      // return view('student.dailyActivity', compact('activityGroup','userActivities'));
+      // return compact('activityGroup','userActivities');
+      return view('student.dailyActivity', compact('activityGroup','userActivities'));
     }
 
     /**

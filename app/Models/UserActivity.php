@@ -14,7 +14,9 @@ class UserActivity extends Model
       'date',
       'activities',
       'note',
-      'course_id'
+      'course_id',
+      'activities_done',
+      'total_activities'
     ];
 
     public function users()

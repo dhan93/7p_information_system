@@ -19,6 +19,8 @@ class CreateUserActivities extends Migration
             $table->foreignId('user_id')->constrained();
             $table->unsignedInteger('course_id');
             $table->date('date');
+            $table->unsignedTinyInteger('activities_done');
+            $table->unsignedTinyInteger('total_activities');
             $table->string('note', 255)->nullable();
             $table->timestamps();
 

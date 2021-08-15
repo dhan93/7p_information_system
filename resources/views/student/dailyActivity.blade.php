@@ -49,17 +49,20 @@
           </tr>
         </thead>
         <tbody class="text-center bg-gray-200">
-          @for ($i = 0; $i < 10; $i++)
+          @foreach ($userActivities as $userActivity)
             <tr class="bg-white border-b-2 border-gray-200">
               <td class="px-2 py-2">
-                <span>{{ $i+1 }} Juli 2021</span>
+                <span>{{$userActivity->date}}</span>
               </td>
               <td class="px-2 py-2">
-                <span>{{ rand(0,40) }}/40</span>
+                <span>{{ $userActivity->activities_done }}/{{ $userActivity->total_activities }}</span>
               </td>
               <td class="px-2 py-2">
-                <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
+                <a href="" class="px-2 py-1 mr-2 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
                   <span class="icon-remove_red_eye"></span> <span class="hidden sm:inline">lihat</span>
+                </a>
+                <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
+                  <span class="icon-edit"></span> <span class="hidden sm:inline">perbarui</span>
                 </a>
               </td>
             </tr>
@@ -67,11 +70,15 @@
               <td colspan="4" class="p-2 text-sm text-left">
                 <span class="font-semibold">Catatan diri :</span>
                 <span class="w-full">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque debitis provident saepe sit ipsam libero assumenda incidunt! Debitis porro libero voluptatum amet maxime minima adipisci voluptas blanditiis magni, et rem.
+                  @if ($userActivity->note)
+                    {{$userActivity->note}}
+                  @else
+                    -
+                  @endif
                 </span>
               </td>
             </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
   </x-card>

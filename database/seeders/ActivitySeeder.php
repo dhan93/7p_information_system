@@ -76,6 +76,8 @@ class ActivitySeeder extends Seeder
               'activities' => [5]
             ]
             ]),
+            'activities_done' => 4,
+            'total_activities' => 5,
             'note' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error quibusdam odit possimus fugit, tenetur consequatur temporibus delectus quod saepe est ea molestias numquam.',
             'course_id' => 4
         ]);
@@ -88,6 +90,8 @@ class ActivitySeeder extends Seeder
               'activities' => [1, 3, 4],
             ]
             ]),
+            'activities_done' => 3,
+            'total_activities' => 5,
             'course_id' => 4
         ]);
     }
