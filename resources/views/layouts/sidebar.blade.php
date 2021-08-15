@@ -5,7 +5,7 @@
     ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
     ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],
     ['title'=>'Amalan Harian', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
-    ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
+    // ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
     ['title'=>'Evaluasi', 'target'=>route('exam.index'), 'icon' => 'icon-create'],
     ['title'=>'Bantuan', 'target'=>route('guide.index'), 'icon' => 'icon-contact_support']
   ]
