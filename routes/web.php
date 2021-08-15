@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('assignment', 'App\Http\Controllers\AssignmentController');    
   Route::resource('exam', 'App\Http\Controllers\ExamController');
   Route::resource('guide', 'App\Http\Controllers\UserGuideController');
+  Route::post('/user/change_course', ['App\Http\Controllers\UserController', 'courseChanger'])->name('changeCourse');
 });
 
 
