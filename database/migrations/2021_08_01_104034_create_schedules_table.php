@@ -18,8 +18,8 @@ class CreateSchedulesTable extends Migration
             $table->integer('course_id')->unsigned();
             $table->timestamp('time');
             $table->string('topic', 100);
-            $table->string('sub_topic', 100);
-            $table->string('lecturer', 100);
+            $table->string('sub_topic', 100)->nullable();
+            $table->string('lecturer', 100)->nullable();
             $table->timestamps();
         });
     }
