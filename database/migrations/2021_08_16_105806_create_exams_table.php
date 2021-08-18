@@ -18,6 +18,7 @@ class CreateExamsTable extends Migration
             $table->increments('id');
             // class_id: int
             $table->unsignedInteger('schedule_id');
+            $table->unsignedInteger('course_id');
             // questions: int
             $table->unsignedTinyInteger('total_questions');
             // effective_date: date
@@ -26,6 +27,7 @@ class CreateExamsTable extends Migration
             $table->enum('category', ['pre', 'post', 'mid', 'final']);
             $table->timestamps();
 
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->foreign('schedule_id')->references('id')->on('schedules');
         });
     }

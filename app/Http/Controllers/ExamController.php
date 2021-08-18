@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ExamController extends Controller
 {
@@ -13,7 +16,19 @@ class ExamController extends Controller
      */
     public function index()
     {
-      return view('student.exam');
+      // $exams = DB::table('exams')
+      //   ->where('course_id', '=', 4)
+      //   ->get();
+      $exams = DB::table('exams')
+        ->join('schedules', 'exams.schedule_id', '=', 'schedules.id')
+        ->join('exam_user', 'exams.id', '=', 'exam_user.exam_id')
+        ->join('users', 'exam_user.user_id', '=', 'users.id')
+        ->select('exams.*', 'exam_user.*', 'users.id as user_id', 'schedules.time', 'schedules.topic')
+        ->where('exams.course_id', '=', Auth::user()->default_course)
+        ->where('users.id', '=', Auth::id())
+        ->get();
+
+      return view('student.exam', compact('exams'));
     }
 
     /**

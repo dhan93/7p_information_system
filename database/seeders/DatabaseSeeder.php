@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
           AttendanceSeeder::class,
           ModuleSeeder::class,
           ActivitySeeder::class,
+          ExamSeeder::class
       ]);
     }
 }

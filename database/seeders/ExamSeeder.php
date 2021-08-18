@@ -20,14 +20,18 @@ class ExamSeeder extends Seeder
         Exam::create([
           'id'=>1,
           'schedule_id'=>6,
-          'total_question'=>5,
+          'course_id'=>4,
+          'total_questions'=>5,
           'due_date'=>date("Y-m-d",mktime(19,45,0,9,5,2021)),
+          'category'=>'pre',
         ]);
         Exam::create([
           'id'=>2,
           'schedule_id'=>8,
-          'total_question'=>5,
+          'course_id'=>4,
+          'total_questions'=>5,
           'due_date'=>date("Y-m-d",mktime(19,45,0,9,7,2021)),
+          'category'=>'post',
         ]);
 
         // exam 1
@@ -219,7 +223,7 @@ class ExamSeeder extends Seeder
 
         DB::table('exam_user')->insert([
           ['user_id'=>2, 'exam_id'=>1, 'score'=>60.0],
-          ['user_id'=>2, 'exam_id'=>2, 'score'=>40.0],
+          ['user_id'=>2, 'exam_id'=>2, 'score'=>NULL],
         ]);
     }
 }

@@ -16,7 +16,7 @@ class CreateExamUserTable extends Migration
         Schema::create('exam_user', function (Blueprint $table) {
             $table->unsignedInteger('exam_id');
             $table->foreignId('user_id')->constrained();
-            $table->float('score');
+            $table->float('score')->nullable();
 
             $table->foreign('exam_id')->references('id')->on('exams');
         });
