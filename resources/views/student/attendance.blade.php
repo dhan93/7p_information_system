@@ -4,41 +4,65 @@
 
 @section('main')
 <x-card class="w-full" title="Lapor Absensi">
-  <form class="grid grid-cols-12" x-data="{attendance_status: null}" action="{{route('attendance.store')}}" method="POST">
-    @csrf
-    {{-- list judul materi [ tanggal, judul, pemateri ] --}}
-    <x-label for="topic" value="Judul Materi" class="col-span-12" />
-    <x-select name="topic" id="topic_selector" class="col-span-12">
-      <option value="1">Judul materi</option>
-    </x-select>
-    {{-- hadir/tidak --}}
-    <x-label value="Status" class="col-span-12 mt-2" />
-    <x-radio model="attendance_status" name="status" class="col-span-12" label="hadir" id="status_yes" value="true" />
-    <x-radio model="attendance_status" name="status" class="col-span-12" label="tidak hadir" id="status_no" value="false" />
-    {{-- jam masuk ( jika hadir ) --}}
-    <template x-if="attendance_status == 'true'">
-      <div class="col-span-12 mt-2">
-        <x-label for="attendance_time" value="Jam masuk" class="w-full" />
-        <x-input type="time" name="attendance_time" class="w-full mb-2" value="19:45" required/>
-        {{-- channel (zoom, youtube live, youtube) --}}
-        {{-- sampai selesai? ( jika hadir ) --}}
-        <x-label value="Hadir sampai selesai" class="" />
-        <x-radio name="full_attendance" class="" label="sampai selesai" id="full_yes" value=true />
-        <x-radio name="full_attendance" class="" label="tidak sampai selesai" id="full_no" value=false />
+  @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
       </div>
-    </template>
-    {{-- alasan izin ( jika tidak hadir / tidak selesai ) --}}
-    <template x-if="attendance_status == 'false'">
-      <div class="col-span-12 mt-2">
-        <x-label for="absence_reason" value="Alasan tidak hadir" class="w-full" />
-        <x-textarea name="absence_reason" rows="2" class="w-full" />
+  @endif
+
+  @if ($scheduleOptions)
+    <form class="grid grid-cols-12" x-data="{attendance_status: null}" action="{{route('attendance.store')}}" method="POST">
+      @csrf
+      {{-- list judul materi [ tanggal, judul, pemateri ] --}}
+      <x-label for="topic" value="Judul Materi" class="col-span-12" />
+      <x-select name="topic" id="topic_selector" class="col-span-12">
+        @foreach ($scheduleOptions as $option)
+            <option value="{{ $option->id }}">{{ $option->topic }}: {{ $option->sub_topic }}</option>
+        @endforeach
+      </x-select>
+      {{-- hadir/tidak --}}
+      <x-label value="Status" class="col-span-12 mt-2" />
+      <x-radio model="attendance_status" name="status" class="col-span-12" label="hadir" id="status_yes" value="hadir" />
+      <x-radio model="attendance_status" name="status" class="col-span-12" label="tidak hadir" id="status_no" value="izin" />
+      {{-- jam masuk ( jika hadir ) --}}
+      <template x-if="attendance_status == 'hadir'">
+        <div class="col-span-12 mt-2">
+          <x-label for="attendance_time" value="Jam masuk" class="w-full" />
+          <x-input type="time" name="attendance_time" class="w-full mb-2" value="19:45" required/>
+          {{-- channel (zoom, youtube live, youtube) --}}
+          <x-label value="Media yang digunakan" class="mt-2" />
+          <x-radio name="channel" class="" label="Zoom" id="zoom" value="zoom" />
+          <x-radio name="channel" class="" label="Youtube" id="youtube" value="youtube live" />
+          {{-- sampai selesai? ( jika hadir ) --}}
+          <x-label value="Hadir sampai selesai" class="mt-2" />
+          <x-radio name="full_attendance" class="" label="sampai selesai" id="full_yes" value=true />
+          <x-radio name="full_attendance" class="" label="tidak sampai selesai" id="full_no" value=false />
+        </div>
+      </template>
+      {{-- alasan izin ( jika tidak hadir / tidak selesai ) --}}
+      <template x-if="attendance_status == 'izin'">
+        <div class="col-span-12 mt-2">
+          <x-label for="absence_reason" value="Alasan tidak hadir" class="w-full" />
+          <x-textarea name="absence_reason" rows="2" class="w-full" />
+          {{-- sudah lihat di youtube? --}}
+          <x-label value="Sudah menyaksikan rekaman materi di youtube" class="mt-2" />
+          <x-radio name="channel" class="" label="Ya, sudah" id="youtube" value="youtube" />
+          <x-radio name="channel" class="" label="Belum" id="none" value="-" />
+        </div>
+      </template>
+      <div class="col-span-12">
+        <x-button class="px-3 mt-2 text-center" type="submit">Simpan</x-button>
       </div>
-      {{-- sudah lihat di youtube? --}}
-    </template>
-    <div class="col-span-12">
-      <x-button class="px-3 mt-2 text-center" >Simpan</x-button>
-    </div>
-  </form>
+    </form>    
+  @else
+    <div class="font-medium text-center">
+      belum ada agenda terbaru
+    </div>    
+  @endif
 </x-card>
 
 <x-card class="w-full" title="Rekap Absensi">
