@@ -52,7 +52,8 @@ class ScheduleSeeder extends Seeder
       Schedule::create([
         'course_id' => '4',
         'time' => date("Y/m/d H:i:s",mktime(19,45,0,8,6,2021)),
-        'topic' => 'Pre-Test',
+        'topic' => 'Test',
+        'sub_topic' => 'Pre-Test',
       ]);
       Schedule::create([
         'course_id' => '4',
@@ -64,7 +65,8 @@ class ScheduleSeeder extends Seeder
       Schedule::create([
         'course_id' => '4',
         'time' => date("Y/m/d H:i:s",mktime(19,45,0,9,6,2021)),
-        'topic' => 'Final-Test',
+        'topic' => 'Test',
+        'sub_topic' => 'Final-Test'
       ]);
     }
 }

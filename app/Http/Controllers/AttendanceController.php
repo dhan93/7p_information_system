@@ -39,12 +39,12 @@ class AttendanceController extends Controller
       $scheduleOptions = [];
 
       foreach ($schedules as $schedule) {
-        if (! in_array($schedule->id, $filledSchedules)) {
+        if (! in_array($schedule->id, $filledSchedules) && strtolower($schedule->topic) != 'test' ) {
           array_push($scheduleOptions, $schedule);
         }
       }
       
-      // return compact('scheduleOptions');
+      // return compact('attendances', 'scheduleOptions');
       return view('student.attendance', compact('attendances', 'scheduleOptions'));
     }
 
@@ -66,46 +66,40 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-      // return $request;
+      $rules = [
+        // topic	"1"
+        'topic' => 'required|exists:schedules,id',
+        // status	"true"
+        'status' => ['required',Rule::in(['hadir', 'izin'])],
+        // attendance_time	"19:45"
+        'attendance_time' => 'sometimes|date_format:H:i',
+        // channel	"zoom"
+        'channel' => ['required',Rule::in(['zoom', 'youtube', 'youtube live', '-'])],
+        // full_attendance	"true"
+        'full_attendance' => ['sometimes', Rule::in(['true', 'false'])],
+        // absence_reason	null
+        'absence_reason' => 'nullable|max:100'
+      ];
 
-      // $validated = $request->validate([
-      //   // topic	"1"
-      //   'topic' => 'required|exists:schedules,id',
-      //   // status	"true"
-      //   'status' => 'required|boolean',
-      //   // attendance_time	"19:45"
-      //   'attendance_time' => 'sometimes|date_format:H:i',
-      //   // channel	"zoom"
-      //   'channel' => 'required',
-      //   // full_attendance	"true"
-      //   'full_attendance' => 'sometimes|boolean',
-      //   // absence_reason	null
-      //   'absence_reason' => 'nullable|max:100'
-      // ]);
+      $errorMessage = [
+        'required' => 'Kolom :attribute harus diisi.',
+        'sometimes' => 'Kolom :attribute harus diisi.',
+        'in' => 'Kolom :attribute tidak valid',
+        'exists' => 'Kolom :attribute tidak valid',
+        'max' => 'Kolom :attribute tidak boleh melebihi :max karakter',
+        'date_format' => 'format :attribute tidak sesuai'
+      ];
 
-      $validated = Validator::make($request->all(), [
-          // topic	"1"
-          'topic' => 'required|exists:schedules,id',
-          // status	"true"
-          'status' => [
-            'required',
-            Rule::in(['hadir', 'izin']),
-          ],
-          // attendance_time	"19:45"
-          'attendance_time' => 'sometimes|date_format:H:i',
-          // channel	"zoom"
-          'channel' => [
-            'required',
-            Rule::in(['zoom', 'youtube', 'youtube live', '-']),
-          ],
-          // full_attendance	"true"
-          'full_attendance' => [
-            'sometimes',
-            Rule::in(['true', 'false']),
-          ],
-          // absence_reason	null
-          'absence_reason' => 'nullable|max:100'
-      ])->validate();
+      $attributes = [
+        'topic' => 'JUDUL MATERI',
+        'status' => 'STATUS',
+        'attendance_time' => 'JAM MASUK',
+        'channel' => 'MEDIA YANG DIGUNAKAN',
+        'full_attendance' => 'HADIR SAMPAI SELESAI',
+        'absence_reason' => 'ALASAN TIDAK HADIR'
+      ];
+
+      $validated = Validator::make($request->all(), $rules, $errorMessage, $attributes)->validate();
       
       $time_in = NULL;
       $until_finish = NULL;
@@ -118,8 +112,6 @@ class AttendanceController extends Controller
         $note = $validated['absence_reason'];
       };
       
-      // return $validated;
-      // $storedData = DB::table('attendances')->insert([
       $storedData = Attendance::create([
         'schedule_id' => $validated['topic'],
         'user_id' => Auth::id(),
@@ -131,7 +123,7 @@ class AttendanceController extends Controller
       ]);
 
       if($storedData) {
-        return back()->with('status', 'successfully inserted');
+        return back()->with('status', 'Absensi sudah tercatat, terima kasih :)');
       };
     }
 

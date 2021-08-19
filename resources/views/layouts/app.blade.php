@@ -53,11 +53,16 @@
           </div>
         @endif
       </div>
+      @if(session('status'))
+        <div class="p-2 text-center text-white bg-green-400 rounded-md">
+          {{ session('status') }}
+        </div>
+      @endif
       @yield('main')
     </main>
   </div>
   
   <!-- icomoon -->
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/d023a8c4e9/s7p_is/style.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/efd6fe522a/s7p_is/style.css">
 </body>
 </html>

@@ -4,15 +4,7 @@
 
 @section('main')
 <x-card class="w-full" title="Lapor Absensi">
-  @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-  @endif
+  <x-error-message class="mb-8 -mt-3" />
 
   @if ($scheduleOptions)
     <form class="grid grid-cols-12" x-data="{attendance_status: null}" action="{{route('attendance.store')}}" method="POST">
@@ -21,7 +13,13 @@
       <x-label for="topic" value="Judul Materi" class="col-span-12" />
       <x-select name="topic" id="topic_selector" class="col-span-12">
         @foreach ($scheduleOptions as $option)
-            <option value="{{ $option->id }}">{{ $option->topic }}: {{ $option->sub_topic }}</option>
+            <option value="{{ $option->id }}">
+              {{ $option->topic }}
+                @if ($option->sub_topic)
+                  :
+                @endif
+              {{ $option->sub_topic }}
+            </option>
         @endforeach
       </x-select>
       {{-- hadir/tidak --}}
