@@ -8,7 +8,6 @@
     name="{{$name}}"
     id="{{$name}}"
     value="{{$value ?? $name}}"
-    required
   >
   <label for="{{$name}}" class="{{$labelClass ?? ''}}">
     {{$label}}

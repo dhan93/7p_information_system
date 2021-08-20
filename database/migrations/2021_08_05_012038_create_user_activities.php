@@ -14,7 +14,7 @@ class CreateUserActivities extends Migration
     public function up()
     {
         Schema::create('user_activities', function (Blueprint $table) {
-            $table->id();
+            $table->string('id', 20)->unique();
             $table->json('activities');
             $table->foreignId('user_id')->constrained();
             $table->unsignedInteger('course_id');

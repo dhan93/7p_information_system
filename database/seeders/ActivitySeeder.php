@@ -64,6 +64,7 @@ class ActivitySeeder extends Seeder
           'title' => 'Puasa Daud'
         ]);
         UserActivity::create([
+          'id' => '2_4_2021-08-01',
           'user_id' => 2,
           'date' => date("Y-m-d",mktime(0,0,0,8,1,2021)),
           'activities' => json_encode([
@@ -82,6 +83,7 @@ class ActivitySeeder extends Seeder
             'course_id' => 4
         ]);
         UserActivity::create([
+          'id' => '2_4_2021-08-02',
           'user_id' => 2,
           'date' => date("Y-m-d",mktime(0,0,0,8,2,2021)),
           'activities' => json_encode([

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+// use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use App\Models\UserActivity;
 use App\Models\ActivityGroup;
 
@@ -34,7 +37,11 @@ class DailyActivityController extends Controller
      */
     public function create()
     {
-        //
+      $activities = ActivityGroup::with('activities')
+        ->where('course_id', '=', Auth::user()->default_course)
+        ->get();
+      // return $activities;
+      return view('student.dailyActivityCreate', compact('activities'));
     }
 
     /**
@@ -45,7 +52,43 @@ class DailyActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // return $request;
+      $activitiesArray = [];
+      $activities_done = 0;
+
+      $checkbox = $request->checkbox;
+      foreach ($checkbox as $group => $items) {
+        $activityGroup = $group;
+        $activities = [];
+        foreach ($items as $item) {
+          array_push($activities, intval($item));
+          $activities_done += 1;
+        }
+        array_push($activitiesArray, ['activity_group'=>$activityGroup, 'activities'=>$activities]);
+      }
+
+      $radio = $request->radio;
+      foreach ($radio as $group => $item) {
+        array_push($activitiesArray, ['activity_group'=>$group, 'activities'=>intval($item)]);
+        $activities_done += 1;
+      }
+
+      // $validated
+
+      $storedData = UserActivity::create([
+        'id' => Auth::id().'_'.Auth::user()->default_course.'_'.$request->date,
+        'user_id' => Auth::id(),
+        'date'=> $request->date,
+        'activities' => json_encode($activitiesArray),
+        'note' => $request->note,
+        'course_id' => Auth::user()->default_course,
+        'activities_done' => $activities_done,
+        'total_activities' => $request->total_activities,
+      ]);
+
+      if($storedData) {
+        return redirect(route('daily_activity.index'))->with('status', 'Data telah disimpan');
+      };
     }
 
     /**
