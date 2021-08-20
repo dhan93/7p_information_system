@@ -13,13 +13,13 @@
       <table class="w-full mx-auto table-auto md:max-w-md lg:max-w-xl xl:max-w-3xl min-w-min md:min-w-0">
         <thead class="">
           <tr class="font-semibold text-white bg-pink-400">
-            <th class="px-2 py-2">
+            <th class="py-2">
               <span>Tanggal</span>
             </th>
-            <th class="px-2 py-2">
+            <th class="py-2">
               <span>Capaian</span>
             </th>
-            <th class="px-2 py-2">
+            <th class="py-2">
               <span>Rincian</span>
             </th>
           </tr>
@@ -27,19 +27,19 @@
         <tbody class="text-center bg-gray-200">
           @foreach ($userActivities as $userActivity)
             <tr class="bg-white border-b-2 border-gray-200">
-              <td class="px-2 py-2">
+              <td class="py-2">
                 <span>{{$userActivity->date}}</span>
               </td>
-              <td class="px-2 py-2">
+              <td class="py-2">
                 <span>{{ $userActivity->activities_done }}/{{ $userActivity->total_activities }}</span>
               </td>
-              <td class="px-2 py-2">
-                <a href="" class="px-2 py-1 mr-2 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
+              <td class="py-2">
+                <a href="{{route('daily_activity.show', $userActivity->id)}}" class="px-2 py-1 mr-2 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
                   <span class="icon-remove_red_eye"></span> <span class="hidden sm:inline">lihat</span>
                 </a>
-                <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
+                {{-- <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
                   <span class="icon-edit"></span> <span class="hidden sm:inline">perbarui</span>
-                </a>
+                </a> --}}
               </td>
             </tr>
             <tr>

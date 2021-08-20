@@ -16,7 +16,7 @@
     {{-- tanggal --}}
     <div class="col-span-12 p-4 pt-2 my-2 border-2 border-gray-200 rounded-lg">
       <x-label for="date" value="Tanggal" class="w-full" />
-      <x-input name="date" type="date" class="w-full" value="{{date('Y-m-d')}}"></x-input>
+      <x-input name="date" type="date" class="w-full" value="{{date('Y-m-d')}}" max="{{date('Y-m-d')}}"></x-input>
     </div>
 
     {{-- activities --}}

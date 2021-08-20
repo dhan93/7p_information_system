@@ -73,9 +73,7 @@ class DailyActivityController extends Controller
         $activities_done += 1;
       }
 
-      // $validated
-
-      $storedData = UserActivity::create([
+      $data = [
         'id' => Auth::id().'_'.Auth::user()->default_course.'_'.$request->date,
         'user_id' => Auth::id(),
         'date'=> $request->date,
@@ -84,7 +82,22 @@ class DailyActivityController extends Controller
         'course_id' => Auth::user()->default_course,
         'activities_done' => $activities_done,
         'total_activities' => $request->total_activities,
-      ]);
+      ];
+
+      $rules = [
+        'date' => 'required|date_format:Y-m-d',
+        'id' => 'unique:user_activities,id',
+      ];
+
+      $errorMessage = [
+        'id.unique' => 'Amalan harian pada tanggal yang dipilih sudah pernah diisi'
+      ];
+
+      $validated = Validator::make($data, $rules, $errorMessage)->validate();
+
+      if ($validated) {
+        $storedData = UserActivity::create($data);
+      }
 
       if($storedData) {
         return redirect(route('daily_activity.index'))->with('status', 'Data telah disimpan');
