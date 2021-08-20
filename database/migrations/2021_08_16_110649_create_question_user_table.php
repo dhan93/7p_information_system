@@ -14,6 +14,7 @@ class CreateQuestionUserTable extends Migration
     public function up()
     {
         Schema::create('question_user', function (Blueprint $table) {
+            $table->string('id', 16)->unique()->comment('questionId_userId');
             $table->unsignedInteger('question_id');
             $table->foreignId('user_id')->constrained();
             $table->string('answer', 1);

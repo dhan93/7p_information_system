@@ -31,7 +31,7 @@ class ExamSeeder extends Seeder
           'course_id'=>4,
           'total_questions'=>5,
           'due_date'=>date("Y-m-d",mktime(19,45,0,9,7,2021)),
-          'category'=>'post',
+          'category'=>'final',
         ]);
 
         // exam 1
@@ -208,22 +208,22 @@ class ExamSeeder extends Seeder
           'key' => 'b',
         ]);
 
-        DB::table('question_user')->insert([
-          ['user_id'=>2, 'question_id'=>1, 'answer'=>'a'],
-          ['user_id'=>2, 'question_id'=>2, 'answer'=>'a'],
-          ['user_id'=>2, 'question_id'=>3, 'answer'=>'a'],
-          ['user_id'=>2, 'question_id'=>4, 'answer'=>'a'],
-          ['user_id'=>2, 'question_id'=>5, 'answer'=>'a'],
-          ['user_id'=>2, 'question_id'=>6, 'answer'=>'b'],
-          ['user_id'=>2, 'question_id'=>7, 'answer'=>'b'],
-          ['user_id'=>2, 'question_id'=>8, 'answer'=>'b'],
-          ['user_id'=>2, 'question_id'=>9, 'answer'=>'b'],
-          ['user_id'=>2, 'question_id'=>10, 'answer'=>'b'],
-        ]);
+        // DB::table('question_user')->insert([
+        //   ['id'=>'1_2','user_id'=>2, 'question_id'=>1, 'answer'=>'a'],
+        //   ['id'=>'2_2','user_id'=>2, 'question_id'=>2, 'answer'=>'a'],
+        //   ['id'=>'3_2','user_id'=>2, 'question_id'=>3, 'answer'=>'a'],
+        //   ['id'=>'4_2','user_id'=>2, 'question_id'=>4, 'answer'=>'a'],
+        //   ['id'=>'5_2','user_id'=>2, 'question_id'=>5, 'answer'=>'a'],
+        //   ['id'=>'6_2','user_id'=>2, 'question_id'=>6, 'answer'=>'b'],
+        //   ['id'=>'7_2','user_id'=>2, 'question_id'=>7, 'answer'=>'b'],
+        //   ['id'=>'8_2','user_id'=>2, 'question_id'=>8, 'answer'=>'b'],
+        //   ['id'=>'9_2','user_id'=>2, 'question_id'=>9, 'answer'=>'b'],
+        //   ['id'=>'10_2','user_id'=>2, 'question_id'=>10, 'answer'=>'b'],
+        // ]);
 
-        DB::table('exam_user')->insert([
-          ['user_id'=>2, 'exam_id'=>1, 'score'=>60.0],
-          ['user_id'=>2, 'exam_id'=>2, 'score'=>NULL],
-        ]);
+        // DB::table('exam_user')->insert([
+        //   ['id'=> '1_2', 'user_id'=>2, 'exam_id'=>1, 'score'=>60.0],
+        //   // ['user_id'=>2, 'exam_id'=>2, 'score'=>NULL],
+        // ]);
     }
 }

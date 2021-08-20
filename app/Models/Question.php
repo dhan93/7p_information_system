@@ -18,11 +18,11 @@ class Question extends Model
 
     public function options()
     {
-      return $this->hasMany(Question::class);
+      return $this->hasMany(QuestionOption::class);
     }
 
     public function users()
     {
-      return $this->belongsToMany(User::class);
+      return $this->belongsToMany(User::class)->withPivot('id', 'answer');
     }
 }
