@@ -96,6 +96,14 @@ class ExamController extends Controller
         ->join('schedules', 'exams.schedule_id', '=', 'schedules.id')
         ->select('exams.*', 'exams.id as theId', 'schedules.topic', 'schedules.sub_topic')
         ->first();
+        
+      $questions = Question::with(['options'=>function ($query)
+        {
+          $query->orderBy('key');
+        }])
+        ->orderBy('id')
+        ->where('exam_id', '=', $id)
+        ->get();
       
       // reject direct access if not valid
       if ($examData->course_id != Auth::user()->default_course) {
@@ -104,17 +112,22 @@ class ExamController extends Controller
 
       // return show if user already filling
       if (count($examData->users)) {
-        return view('student.examShow');
+        $questionId = [];
+        foreach ($questions as $question) {
+          array_push($questionId, $question->id);
+        }
+        
+        $answers = DB::table('question_user')
+          ->where('user_id', '=', Auth::id())
+          ->whereIn('question_id', $questionId)
+          ->orderBy('question_id')
+          ->get();
+        // return compact('examData', 'questions', 'answers');
+        return view('student.examShow', compact('examData', 'questions', 'answers'));
       };
 
       // default return create if user hasn't filling
-      $questions = Question::with(['options'=>function ($query)
-        {
-          $query->orderBy('key');
-        }])
-        ->orderBy('id')
-        ->where('exam_id', '=', $id)
-        ->get();
+      
       // return compact('examData', 'questions');
       return view('student.examCreate', compact('examData', 'questions'));
     }
