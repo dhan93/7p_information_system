@@ -34,10 +34,10 @@
 
     <!-- Email Address -->
     <div>
-        <x-label for="email" value="Email" class="text-sm font-medium" />
+        <x-label for="phone" value="Nomor Whatsapp" class="text-sm font-medium" />
 
         {{-- <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus /> --}}
-        <x-input id="email" class="block w-full mt-1" type="email" name="email" value="admin@admin.com" required autofocus />
+        <x-input id="phone" class="block w-full mt-1" type="text" name="phone" value="628161170961" placeholder="contoh: 628123456789" required autofocus />
     </div>
 
     <!-- Password -->
