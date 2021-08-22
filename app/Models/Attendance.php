@@ -15,7 +15,7 @@ class Attendance extends Model
       'status',
       'channel',
       'time_in',
-      'until_finished',
+      'until_finish',
       'note'
     ];
 

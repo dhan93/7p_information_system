@@ -45,9 +45,9 @@
             <th class="px-2 py-2">
               <span class="font-semibold text-white">Pemateri</span>
             </th>
-            <th class="px-2 py-2">
+            {{-- <th class="px-2 py-2">
               <span class="font-semibold text-white">Dokumentasi</span>
-            </th>
+            </th> --}}
           </tr>
         </thead>
         <tbody class="text-center bg-gray-200">
@@ -66,7 +66,7 @@
               <td class="px-2 py-2">
                 <span>{{ $schedule->lecturer }}</span>
               </td>
-              <td class="flex flex-col px-2 py-2">
+              {{-- <td class="flex flex-col px-2 py-2">
                 <span class="mb-4">
                   <a href="">
                     <span class="icon-file-movie-o"></span> <span class="hidden sm:inline">Video</span>
@@ -77,7 +77,7 @@
                     <span class="icon-file-pdf-o"></span> <span class="hidden sm:inline">Materi</span>
                   </a>
                 </span>
-              </td>
+              </td> --}}
             </tr>
           @endforeach
         </tbody>

@@ -121,7 +121,7 @@ class AttendanceController extends Controller
         'until_finish' => $until_finish,
         'note' => $note
       ]);
-
+      
       if($storedData) {
         return back()->with('status', 'Absensi sudah tercatat, terima kasih :)');
       };

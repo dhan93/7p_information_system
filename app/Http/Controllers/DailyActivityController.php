@@ -57,21 +57,28 @@ class DailyActivityController extends Controller
       $activities_done = 0;
 
       $checkbox = $request->checkbox;
-      foreach ($checkbox as $group => $items) {
-        $activityGroup = $group;
-        $activities = [];
-        foreach ($items as $item) {
-          array_push($activities, intval($item));
-          $activities_done += 1;
+      
+      if ($checkbox) {
+        foreach ($checkbox as $group => $items) {
+          $activityGroup = $group;
+          $activities = [];
+          foreach ($items as $item) {
+            array_push($activities, intval($item));
+            $activities_done += 1;
+          }
+          array_push($activitiesArray, ['activity_group'=>$activityGroup, 'activities'=>$activities]);
         }
-        array_push($activitiesArray, ['activity_group'=>$activityGroup, 'activities'=>$activities]);
       }
 
       $radio = $request->radio;
-      foreach ($radio as $group => $item) {
-        array_push($activitiesArray, ['activity_group'=>$group, 'activities'=>intval($item)]);
-        $activities_done += 1;
-      }
+      if ($radio) {
+        foreach ($radio as $group => $item) {
+          if (intval($item) != 0) {
+            array_push($activitiesArray, ['activity_group'=>$group, 'activities'=>intval($item)]);
+          }
+          $activities_done += 1;
+        }
+      }      
 
       $data = [
         'id' => Auth::id().'_'.Auth::user()->default_course.'_'.$request->date,

@@ -24,8 +24,8 @@
       </x-select>
       {{-- hadir/tidak --}}
       <x-label value="Status" class="col-span-12 mt-2" />
-      <x-radio model="attendance_status" name="status" class="col-span-12" label="hadir" id="status_yes" value="hadir" />
-      <x-radio model="attendance_status" name="status" class="col-span-12" label="tidak hadir" id="status_no" value="izin" />
+      <x-radio model="attendance_status" name="status" class="col-span-12" label="hadir" id="status_yes" value="hadir" required/>
+      <x-radio model="attendance_status" name="status" class="col-span-12" label="tidak hadir" id="status_no" value="izin" required/>
       {{-- jam masuk ( jika hadir ) --}}
       <template x-if="attendance_status == 'hadir'">
         <div class="col-span-12 mt-2">
@@ -33,12 +33,12 @@
           <x-input type="time" name="attendance_time" class="w-full mb-2" value="19:45" required/>
           {{-- channel (zoom, youtube live, youtube) --}}
           <x-label value="Media yang digunakan" class="mt-2" />
-          <x-radio name="channel" class="" label="Zoom" id="zoom" value="zoom" />
-          <x-radio name="channel" class="" label="Youtube" id="youtube" value="youtube live" />
+          <x-radio name="channel" class="" label="Zoom" id="zoom" value="zoom" required />
+          <x-radio name="channel" class="" label="Youtube" id="youtube" value="youtube live" required />
           {{-- sampai selesai? ( jika hadir ) --}}
           <x-label value="Hadir sampai selesai" class="mt-2" />
-          <x-radio name="full_attendance" class="" label="sampai selesai" id="full_yes" value=true />
-          <x-radio name="full_attendance" class="" label="tidak sampai selesai" id="full_no" value=false />
+          <x-radio name="full_attendance" class="" label="sampai selesai" id="full_yes" value=true required />
+          <x-radio name="full_attendance" class="" label="tidak sampai selesai" id="full_no" value=false required />
         </div>
       </template>
       {{-- alasan izin ( jika tidak hadir / tidak selesai ) --}}
@@ -48,8 +48,8 @@
           <x-textarea name="absence_reason" rows="2" class="w-full" />
           {{-- sudah lihat di youtube? --}}
           <x-label value="Sudah menyaksikan rekaman materi di youtube" class="mt-2" />
-          <x-radio name="channel" class="" label="Ya, sudah" id="youtube" value="youtube" />
-          <x-radio name="channel" class="" label="Belum" id="none" value="-" />
+          <x-radio name="channel" class="" label="Ya, sudah" id="youtube" value="youtube" required />
+          <x-radio name="channel" class="" label="Belum" id="none" value="-" required />
         </div>
       </template>
       <div class="col-span-12">
@@ -85,7 +85,7 @@
             <span>{{ date_format(date_create($attendance->time), 'd M Y') }}</span>
           </td>
           <td class="px-2 py-2">
-            <span>{{ $attendance->sub_topic }}</span>
+            <span>{{ $attendance->topic }}: {{ $attendance->sub_topic }}</span>
           </td>
           <td class="px-10 py-1 font-semibold text-center text-white">
             @if ($attendance->status == "hadir")

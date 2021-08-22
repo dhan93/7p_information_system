@@ -39,6 +39,10 @@
               @foreach ($activity->activities as $item)
                 <x-radio id="{{$activity->id}}_{{$item->id}}" name="{{$activity->type}}[{{$activity->id}}]" label="{{$item->title}}" value="{{$item->id}}" />
               @endforeach
+                <div class="block mt-4">
+                  <input type="radio" name="{{$activity->type}}[{{$activity->id}}]" id="{{$activity->type}}_reset" class="hidden">
+                  <label for="{{$activity->type}}_reset" class="inline-block px-4 py-1 text-xs text-right bg-yellow-300 rounded-md cursor-pointer hover:bg-yellow-200">Reset</label>
+                </div>
               @break
             @default
                 <x-input name="{{$activity->id}}" />

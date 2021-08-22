@@ -8,6 +8,7 @@
     name="{{$name}}"
     id="{{$name}}"
     value="{{$value ?? $name}}"
+    {{$attributes->merge()}}
   >
   <label for="{{$name}}" class="{{$labelClass ?? ''}}">
     {{$label}}
