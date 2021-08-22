@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\ScheduleController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +21,14 @@ use Illuminate\Support\Facades\Route;
 // })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-  // Route::get('/', function () {
-  //   return view('student.dashboard');
-  // })->name('home');
-
-  Route::get('/', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
-  Route::get('/dashboard', ['App\Http\Controllers\ScheduleController', 'index'])->name('home');
+  Route::get('/', function () {
+    if (Auth::user()->role_id == 2) {
+      return redirect(route('admin.dashboard'));
+    }
+    return redirect(route('dashboard'));
+  })->name('home');
+  // Route::get('/', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
+  Route::get('/dashboard', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
 
   Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
   Route::resource('schedule', 'App\Http\Controllers\ScheduleController');    
@@ -39,4 +41,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+require __DIR__.'/admin.php';
 require __DIR__.'/auth.php';
