@@ -20,7 +20,12 @@
       <span class="text-2xl font-semibold leading-tight text-pink-400 md:text-3xl">{{$item['topic']}}: {{$item['sub_topic']}}</span>
       <span class="font-semibold text-md">{{$item['lecturer']}}</span>
       <span>
-        {{ date_format($itemDate, 'H.i')}} wib via <a href="#"><span class="underline">Zoom</span> <span class="icon-launch"></span></a>
+        {{ date_format($itemDate, 'H.i')}} wib via 
+        @foreach ($item['schedule_links'] as $link)
+          <a href="{{$link['link']}}" target="_blank">
+            <span class="underline">{{$link['channel']}}</span> <span class="icon-launch"></span>
+          </a>
+        @endforeach
       </span>
     </div>
   </div>

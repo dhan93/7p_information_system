@@ -16,14 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/dashboard', function () {
-    return view('student.dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('student.dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-  Route::get('/', function () {
-    return view('student.dashboard');
-  })->name('home');
+  // Route::get('/', function () {
+  //   return view('student.dashboard');
+  // })->name('home');
+
+  Route::get('/', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
+  Route::get('/dashboard', ['App\Http\Controllers\ScheduleController', 'index'])->name('home');
+
   Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
   Route::resource('schedule', 'App\Http\Controllers\ScheduleController');    
   Route::resource('module', 'App\Http\Controllers\ModuleController');    

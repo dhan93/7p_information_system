@@ -19,9 +19,9 @@
             <th class="py-2">
               <span>Capaian</span>
             </th>
-            <th class="py-2">
+            {{-- <th class="py-2">
               <span>Rincian</span>
-            </th>
+            </th> --}}
           </tr>
         </thead>
         <tbody class="text-center bg-gray-200">
@@ -33,14 +33,14 @@
               <td class="py-2">
                 <span>{{ $userActivity->activities_done }}/{{ $userActivity->total_activities }}</span>
               </td>
-              <td class="py-2">
+              {{-- <td class="py-2">
                 <a href="{{route('daily_activity.show', $userActivity->id)}}" class="px-2 py-1 mr-2 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
                   <span class="icon-remove_red_eye"></span> <span class="hidden sm:inline">lihat</span>
                 </a>
-                {{-- <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
+                <a href="" class="px-2 py-1 text-gray-600 border border-gray-400 rounded-md hover:bg-gray-300 hover:border-gray-300">
                   <span class="icon-edit"></span> <span class="hidden sm:inline">perbarui</span>
-                </a> --}}
-              </td>
+                </a>
+              </td> --}}
             </tr>
             <tr>
               <td colspan="4" class="p-2 text-sm text-left">

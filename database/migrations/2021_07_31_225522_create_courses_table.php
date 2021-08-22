@@ -32,6 +32,7 @@ class CreateCoursesTable extends Migration
         Schema::dropIfExists('course_user');
         Schema::dropIfExists('modules');
         Schema::dropIfExists('attendances');
+        Schema::dropIfExists('schedule_links');
         Schema::dropIfExists('schedules');
         Schema::dropIfExists('user_activities');
         Schema::dropIfExists('activities');

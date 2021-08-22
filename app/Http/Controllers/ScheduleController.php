@@ -19,15 +19,17 @@ class ScheduleController extends Controller
         $defaultCourse = Auth::user()->default_course;
       }
       $schedules = Schedule::where('course_id', $defaultCourse)
+        ->with('scheduleLinks')
         ->orderBy('time', 'desc')
         ->get();
-
+      
       $nextSchedules = array_filter(
         $schedules->toArray(), 
         function ($schedule) {
           return $schedule['time'] > date("Y-m-d H:i:s");
         }
       );
+      
       return view('student.schedule', compact('schedules', 'nextSchedules'));
     }
 

@@ -26,4 +26,9 @@ class Schedule extends Model
     {
       return $this->hasMany(Module::class);
     }
+
+    public function scheduleLinks()
+    {
+      return $this->hasMany(ScheduleLink::class);
+    }
 }

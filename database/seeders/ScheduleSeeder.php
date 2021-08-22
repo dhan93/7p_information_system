@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\DB;
 
 class ScheduleSeeder extends Seeder
 {
@@ -67,6 +68,18 @@ class ScheduleSeeder extends Seeder
         'time' => date("Y/m/d H:i:s",mktime(19,45,0,9,6,2021)),
         'topic' => 'Test',
         'sub_topic' => 'Final-Test'
+      ]);
+      DB::table('schedule_links')->insert([
+        ['schedule_id' => 1, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 1, 'channel' => 'youtube', 'link' => 'https://youtube.com'],
+        ['schedule_id' => 2, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 3, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 4, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 5, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 6, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 7, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 8, 'channel' => 'zoom', 'link' => 'https://zoom.us'],
+        ['schedule_id' => 8, 'channel' => 'youtube', 'link' => 'https://youtube.com'],
       ]);
     }
 }

@@ -1,8 +1,8 @@
 @php
   $menus = [
-    ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
-    ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
+    // ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
     ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
+    ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
     ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],
     ['title'=>'Amalan Harian', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
     // ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
