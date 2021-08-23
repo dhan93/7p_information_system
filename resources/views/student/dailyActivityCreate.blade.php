@@ -22,11 +22,11 @@
     {{-- activities --}}
     @foreach ($activities as $activity)
       <div class="col-span-12 p-4 pt-2 my-2 border-2 border-gray-200 rounded-lg">
-        <x-label>{{ $activity->title }}</x-label>
+        <x-label>{!! $activity->title !!}</x-label>
         @switch($activity->type)
             @case('checkbox')
               @foreach ($activity->activities as $item)
-                <x-checkbox name="{{$activity->type}}[{{$activity->id}}][{{$item->id}}]" label="{{$item->title}}" value="{{$item->id}}" />
+                <x-checkbox name="{{$activity->type}}[{{$activity->id}}][{{$item->id}}]" label="{!!$item->title!!}" value="{{$item->id}}" />
                 @php
                   $total_activities += 1;
                 @endphp
@@ -37,7 +37,7 @@
                 $total_activities += 1;
               @endphp
               @foreach ($activity->activities as $item)
-                <x-radio id="{{$activity->id}}_{{$item->id}}" name="{{$activity->type}}[{{$activity->id}}]" label="{{$item->title}}" value="{{$item->id}}" />
+                <x-radio id="{{$activity->id}}_{{$item->id}}" name="{{$activity->type}}[{{$activity->id}}]" label="{!!$item->title!!}" value="{{$item->id}}" />
               @endforeach
                 <div class="block mt-4">
                   <input type="radio" name="{{$activity->type}}[{{$activity->id}}]" id="{{$activity->type}}_reset" class="hidden">

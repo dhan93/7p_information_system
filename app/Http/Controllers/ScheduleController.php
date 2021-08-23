@@ -20,7 +20,7 @@ class ScheduleController extends Controller
       }
       $schedules = Schedule::where('course_id', $defaultCourse)
         ->with('scheduleLinks')
-        ->orderBy('time', 'desc')
+        ->orderBy('time', 'asc')
         ->get();
       
       $nextSchedules = array_filter(
@@ -29,7 +29,7 @@ class ScheduleController extends Controller
           return $schedule['time'] > date("Y-m-d H:i:s");
         }
       );
-      
+
       return view('student.schedule', compact('schedules', 'nextSchedules'));
     }
 

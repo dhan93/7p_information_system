@@ -28,7 +28,7 @@ class add_testadmin extends Seeder
         'password' => bcrypt('password'),
         'role_id' => 1,
         'multiple_courses' => true,
-        'default_course' => 1, 
+        'default_course' => 4, 
       ]);
       $siswa->courses()->attach([1,4]);
     }

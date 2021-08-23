@@ -26,7 +26,9 @@
       <a class="grid grid-cols-12 p-4 pt-2 mb-4 border border-gray-200 rounded-md opacity-60">
     @endif
       <div class="col-span-10 xl:col-span-11">
-        <h3 class="mb-2 text-2xl font-semibold underline">{{$exam->schedule->topic}}: {{$exam->schedule->sub_topic}}</h3>
+        <h3 class="mb-2 text-2xl font-semibold underline">
+          {!!$exam->schedule->topic!!}{{$exam->schedule->sub_topic ? ': ' : ''}}{!!$exam->schedule->sub_topic!!}
+        </h3>
         <span>Jadwal Test: {{date( 'd-M-Y', strtotime($exam->schedule->time) )}}</span> <br>
         <span>Batas Akhir: {{date( 'd-M-Y', strtotime($exam->due_date) )}}</span> 
       </div>

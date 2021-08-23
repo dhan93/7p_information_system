@@ -1,4 +1,4 @@
-@foreach (array_reverse($data) as $item)
+@foreach ($data as $item)
   @php
     if ($loop->iteration > 3) break;
     $itemDate = date_create($item['time']);
@@ -17,7 +17,9 @@
       <span class="text-lg leading-none">{{ date_format($itemDate, 'F')}}</span>
     </div>
     <div class="flex flex-col col-span-1 text-center sm:col-span-3 sm:text-left">
-      <span class="text-2xl font-semibold leading-tight text-pink-400 md:text-3xl">{{$item['topic']}}: {{$item['sub_topic']}}</span>
+      <span class="text-2xl font-semibold leading-tight text-pink-400 md:text-3xl">
+        {!!$item['topic']!!}{{$item['sub_topic']?': ':''}}{!!$item['sub_topic']!!}
+      </span>
       <span class="font-semibold text-md">{{$item['lecturer']}}</span>
       <span>
         {{ date_format($itemDate, 'H.i')}} wib via 

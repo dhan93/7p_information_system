@@ -19,18 +19,26 @@ class ExamSeeder extends Seeder
     {
         Exam::create([
           'id'=>1,
-          'schedule_id'=>6,
+          'schedule_id'=>2,
           'course_id'=>4,
           'total_questions'=>5,
-          'due_date'=>date("Y-m-d",mktime(19,45,0,9,5,2021)),
+          'due_date'=>date("Y-m-d",mktime(19,45,0,9,8,2021)),
           'category'=>'pre',
         ]);
         Exam::create([
           'id'=>2,
-          'schedule_id'=>8,
+          'schedule_id'=>20,
           'course_id'=>4,
           'total_questions'=>5,
-          'due_date'=>date("Y-m-d",mktime(19,45,0,9,7,2021)),
+          'due_date'=>date("Y-m-d",mktime(22,0,0,10,22,2021)),
+          'category'=>'final',
+        ]);
+        Exam::create([
+          'id'=>3,
+          'schedule_id'=>21,
+          'course_id'=>4,
+          'total_questions'=>5,
+          'due_date'=>date("Y-m-d",mktime(22,0,0,10,23,2021)),
           'category'=>'final',
         ]);
 
