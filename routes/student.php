@@ -4,12 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::middleware(['auth','isstudent'])->group(function () {
-  Route::get('/', function () {
-    if (Auth::user()->role_id == 2) {
-      return redirect(route('admin.dashboard'));
-    }
-    return redirect(route('dashboard'));
-  })->name('home');
   // Route::get('/', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
   Route::get('/dashboard', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
 
