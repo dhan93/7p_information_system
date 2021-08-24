@@ -52,7 +52,7 @@
         </thead>
         <tbody class="text-center bg-gray-200">
           @foreach ($schedules as $schedule)
-            <tr class="bg-white border-b-2 border-gray-200">
+            <tr class="bg-white">
               <td class="px-2 py-2">
                 <span>{{ date_format(date_create($schedule->time), 'd/m/Y') }}</span><br/>
                 <span>{{ date_format(date_create($schedule->time), 'H:i') }} wib</span>

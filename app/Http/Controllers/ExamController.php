@@ -94,8 +94,14 @@ class ExamController extends Controller
             $query->where('users.id', '=', Auth::id());
           }])
         ->join('schedules', 'exams.schedule_id', '=', 'schedules.id')
-        ->select('exams.*', 'exams.id as theId', 'schedules.topic', 'schedules.sub_topic')
+        ->select('exams.*', 'exams.id as theId', 'schedules.topic', 'schedules.sub_topic', 'schedules.time')
         ->first();
+      
+      // reject direct access if not valid
+      if ($examData->time > date("Y-m-d H:i:s")||$examData->course_id != Auth::user()->default_course) {
+        return redirect(route('exam.index'))->with('warning', 'Halaman tidak dapat diakses.');
+        // return 'hello';
+      }
         
       $questions = Question::with(['options'=>function ($query)
         {
@@ -106,9 +112,9 @@ class ExamController extends Controller
         ->get();
       
       // reject direct access if not valid
-      if ($examData->course_id != Auth::user()->default_course) {
-        return back()->with('warning', 'Halaman tidak dapat diakses.');
-      }
+      // if ($examData->course_id != Auth::user()->default_course) {
+      //   return back()->with('warning', 'Halaman tidak dapat diakses.');
+      // }
 
       // return show if user already filling
       if (count($examData->users)) {

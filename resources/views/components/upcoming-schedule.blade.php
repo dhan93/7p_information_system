@@ -22,7 +22,7 @@
       </span>
       <span class="font-semibold text-md">{{$item['lecturer']}}</span>
       <span>
-        {{ date_format($itemDate, 'H.i')}} wib via 
+        {{ date_format($itemDate, 'H.i')}} wib {{count($item['schedule_links'])?'via':''}}
         @foreach ($item['schedule_links'] as $link)
           <a href="{{$link['link']}}" target="_blank">
             <span class="underline">{{$link['channel']}}</span> <span class="icon-launch"></span>

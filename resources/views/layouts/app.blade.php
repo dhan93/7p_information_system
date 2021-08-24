@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('page_title') - {{ config('app.name', 'Laravel') }}</title>
+  <title>@yield('page_title') - S7P Class</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -56,6 +56,11 @@
       @if(session('status'))
         <div class="p-2 text-center text-white bg-green-400 rounded-md">
           {{ session('status') }}
+        </div>
+      @endif
+      @if(session('warning'))
+        <div class="p-2 text-center text-white bg-yellow-400 rounded-md">
+          {{ session('warning') }}
         </div>
       @endif
       @yield('main')
