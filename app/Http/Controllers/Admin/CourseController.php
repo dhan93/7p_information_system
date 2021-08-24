@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
 
-class ScheduleController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,10 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-      return view('admin.schedule.index');
+    { 
+      $courseList = Course::all();
+      
+      return view('admin.course.index', compact('courseList'));
     }
 
     /**
@@ -57,7 +60,7 @@ class ScheduleController extends Controller
      */
     public function edit($id)
     {
-        //
+      // 
     }
 
     /**

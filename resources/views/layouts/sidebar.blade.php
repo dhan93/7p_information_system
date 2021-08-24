@@ -1,5 +1,5 @@
 @php
-  $menus = [
+  $studentMenu = [
     // ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
     ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
     ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
@@ -8,7 +8,27 @@
     // ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
     ['title'=>'Evaluasi', 'target'=>route('exam.index'), 'icon' => 'icon-create'],
     ['title'=>'Bantuan', 'target'=>route('guide.index'), 'icon' => 'icon-contact_support']
-  ]
+  ];
+  $adminMenu = [
+    ['title'=>'Kelas', 'target'=>route('admin.course.index'), 'icon' => 'icon-bookmark'],
+    ['title'=>'Jadwal', 'target'=>route('admin.schedule.index'), 'icon' => 'icon-schedule'],
+    // ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
+    // ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],
+    // ['title'=>'Amalan Harian', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
+    // // ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
+    // ['title'=>'Evaluasi', 'target'=>route('exam.index'), 'icon' => 'icon-create'],
+    // ['title'=>'Bantuan', 'target'=>route('guide.index'), 'icon' => 'icon-contact_support']
+];
+  switch (Auth::user()->role_id) {
+    case 1:
+      $menus = $studentMenu;
+      break;
+    case 2;
+      $menus = $adminMenu;
+    default:
+      # code...
+      break;
+  }
 @endphp
 
 <aside class="flex flex-col-reverse w-full px-3 py-2 bg-red-100 shadow-md md:flex-col md:w-3/12 xl:w-2/12" :class="leftNavOpen ? 'md:hidden' : 'hidden md:block'">
