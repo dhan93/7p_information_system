@@ -6,4 +6,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'ismanagement'])->gr
   Route::get('/dashboard', function () {
       return view('admin.dashboard');
   })->name('dashboard');
+
+  Route::resource('course', 'App\Http\Controllers\Admin\CourseController');
+  Route::resource('schedule', 'App\Http\Controllers\Admin\ScheduleController');
 });
