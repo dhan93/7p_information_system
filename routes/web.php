@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 //     return view('student.dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-Route::middleware(['auth','isstudent'])->group(function () {
+Route::middleware(['auth'])->group(function () {
   Route::get('/', function () {
     if (Auth::user()->role_id == 2) { return redirect(route('admin.dashboard')); }
     return redirect(route('dashboard'));

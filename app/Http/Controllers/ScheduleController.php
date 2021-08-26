@@ -15,6 +15,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
+      $defaultCourse = 0;
       if (Auth::user()->default_course) {
         $defaultCourse = Auth::user()->default_course;
       }

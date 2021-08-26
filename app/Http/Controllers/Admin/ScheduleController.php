@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Schedule;
+use App\Models\Course;
 
 class ScheduleController extends Controller
 {
@@ -14,7 +17,17 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-      return view('admin.schedule.index');
+      $defaultCourse = 0;
+      if (Auth::user()->default_course) {
+        $defaultCourse = Auth::user()->default_course;
+      }
+      $course = Course::find($defaultCourse);
+      $schedules = Schedule::where('course_id', $defaultCourse)
+        ->with('scheduleLinks')
+        ->orderBy('time', 'asc')
+        ->get();
+      // return compact('course', 'schedules');
+      return view('admin.schedule.index', compact('schedules', 'course'));
     }
 
     /**

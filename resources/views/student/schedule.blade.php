@@ -30,7 +30,7 @@
       @endfor
     </div> --}}
     <div class="flex flex-col mt-8">
-      <table class="w-full mx-auto table-auto">
+      <table class="w-full mx-auto table-auto table-stripped">
         <thead class="justify-between">
           <tr class="bg-pink-400">
             <th class="px-2 py-2">

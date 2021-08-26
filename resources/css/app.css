@@ -2,6 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-tr:nth-child(even) {
+.table-stripped tr:nth-child(even) {
   background-color: #FDF2F8;
 }

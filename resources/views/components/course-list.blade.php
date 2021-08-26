@@ -1,9 +1,9 @@
-<form action="{{ route('changeCourse') }}" id="course-selector-form" class="flex-grow h-10 lg:w-2/3" method="POST">
+<form action="{{ route('changeCourse') }}" id="course-selector-form" class="w-full" method="POST">
   @csrf
   <select 
     name="default_course" 
     id="course-selector"
-    class="pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-lg appearance-none lg:flex-initial hover:border-gray-400 focus:outline-none"
+    class="w-full pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-lg appearance-none lg:flex-initial hover:border-gray-400 focus:outline-none"
     onchange="document.getElementById('course-selector-form').submit()"
   >
     @foreach ($availableCourses as $course)
