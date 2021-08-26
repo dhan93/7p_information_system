@@ -25,8 +25,8 @@
     <x-link-list href="" target="_blank">
       Jurnal Sekolah 7 Perempuan <span class="icon-launch"></span>
     </x-link-list>
-    <x-link-list href="">
-      Kumpulan Tutorial Sekolah 7 Perempuan <span class="icon-launch"></span>
+    <x-link-list href="{{route('guide.index')}}">
+      Kumpulan Tutorial Sekolah 7 Perempuan
     </x-link-list>
     <x-link-list href="https://drive.google.com/file/d/1jwsi723wcMZOBHXdq4UbZMsCv659V7tF/view?usp=sharing" target="_blank">
       Dzikir Pagi dan Petang <span class="icon-launch"></span>
