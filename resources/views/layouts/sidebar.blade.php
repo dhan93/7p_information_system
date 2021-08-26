@@ -1,6 +1,6 @@
 @php
   $studentMenu = [
-    // ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
+    ['title'=>'Dashboard', 'target'=>route('dashboard'), 'icon' => 'icon-dashboard'],
     ['title'=>'Jadwal', 'target'=>route('schedule.index'), 'icon' => 'icon-schedule'],
     ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
     ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],

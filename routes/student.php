@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::middleware(['auth','isstudent'])->group(function () {
+  Route::get('/dashboard', function () {
+    return view('student.dashboard');
+  })->name('dashboard');
   // Route::get('/', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
-  Route::get('/dashboard', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
+  // Route::get('/dashboard', ['App\Http\Controllers\ScheduleController', 'index'])->name('dashboard');
 
   Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
   Route::resource('schedule', 'App\Http\Controllers\ScheduleController');    
