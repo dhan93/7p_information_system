@@ -66,39 +66,39 @@
       </a>
     </div>
     
-    <div class="w-full overflow-x-scroll">
-    <table class="border table-fixed min-w-max">
-      <thead>
-        <tr>
-          <th class="w-1/3 border" rowspan="2">Amalan</th>
-          <th class="border" colspan="15">September</th>
-        </tr>
-        <tr>
-          @for ($i = 1; $i <= 15; $i++)
-            <th class="border">{{$i}}</th>
-          @endfor
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($activityGroup as $group)
-            <tr>
-              <td class="text-sm font-semibold text-center bg-pink-200 border" colspan="16">{{$group->title}}</td>
-            </tr>
-            @foreach ($group->activities as $activity)
+    <div class="w-full overflow-x-auto">
+      <table class="border table-fixed min-w-max">
+        <thead>
+          <tr>
+            <th class="w-1/3 border" rowspan="2">Amalan</th>
+            <th class="border" colspan="15">September</th>
+          </tr>
+          <tr>
+            @for ($i = 1; $i <= 15; $i++)
+              <th class="border">{{$i}}</th>
+            @endfor
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($activityGroup as $group)
               <tr>
-                <td class="px-2 py-1 border">{{$activity->title}}</td>
-                @foreach ($matrix[$loop->index]['date'] as $item)
-                  <td class="text-center border">
-                    @if ($item)
-                      <span class="icon-check"></span>    
-                    @endif
-                  </td>
-                @endforeach
+                <td class="text-sm font-semibold text-center bg-pink-200 border" colspan="16">{{$group->title}}</td>
               </tr>
-            @endforeach
-        @endforeach
-      </tbody>
-    </table>
+              @foreach ($group->activities as $activity)
+                <tr>
+                  <td class="px-2 py-1 border">{{$activity->title}}</td>
+                  @foreach ($matrix[$loop->index]['date'] as $item)
+                    <td class="text-center border">
+                      @if ($item)
+                        <span class="icon-check"></span>    
+                      @endif
+                    </td>
+                  @endforeach
+                </tr>
+              @endforeach
+          @endforeach
+        </tbody>
+      </table>
     </div>
   </x-card>
 @endsection

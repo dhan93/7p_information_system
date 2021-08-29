@@ -10,7 +10,7 @@
     <p class="mb-4 text-center">
       Silakan akses halaman-halaman berikut untuk mengenal Sekolah 7 Perempuan lebih jauh.
     </p>
-    <x-link-list href="https://drive.google.com/file/d/1UC_WFnOPooVKnsOFwM9uiC0wzlK_CAuU/view?usp=sharing" target="_blank">
+    <x-link-list href="https://youtu.be/hOQR_GsQ8e4" target="_blank">
       Perkenalan Manajemen Sekolah 7 Perempuan <span class="icon-launch"></span>
     </x-link-list>
     <x-link-list href="" target="_blank">

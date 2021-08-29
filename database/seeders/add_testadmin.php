@@ -30,6 +30,6 @@ class add_testadmin extends Seeder
         'multiple_courses' => false,
         'default_course' => 4, 
       ]);
-      $siswa->courses()->attach([4]);
+      $siswa->courses()->attach(4, ['id' => $siswa->id.'_4']);      
     }
 }

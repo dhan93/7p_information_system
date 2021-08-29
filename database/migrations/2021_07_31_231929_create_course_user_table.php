@@ -14,9 +14,11 @@ class CreateCourseUserTable extends Migration
     public function up()
     {
         Schema::create('course_user', function (Blueprint $table) {
+          $table->string('id', 12)->unique()->comment('courseId_userId');
           $table->unsignedInteger('course_id');
-          $table->foreign('course_id')->references('id')->on('courses');
           $table->foreignId('user_id')->constrained();
+          
+          $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

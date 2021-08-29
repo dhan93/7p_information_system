@@ -64,45 +64,52 @@
 </x-card>
 
 <x-card class="w-full" title="Rekap Absensi">
-  <table class="w-10/12 mx-auto table-auto">
-    <thead class="justify-between">
-      <tr class="font-semibold text-white bg-pink-400">
-        <th class="px-16 py-2">
-          <span>Tanggal</span>
-        </th>
-        <th class="px-16 py-2">
-          <span>Judul materi</span>
-        </th>
-        <th class="px-16 py-2">
-          <span>Status</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody class="bg-gray-200">
-      @foreach ($attendances as $attendance)
-        <tr class="bg-white border-b-2 border-gray-200">
-          <td class="px-2 py-2 text-center">
-            <span>{{ date_format(date_create($attendance->time), 'd M Y') }}</span>
-          </td>
-          <td class="px-2 py-2">
-            <span>{{ $attendance->topic }}: {{ $attendance->sub_topic }}</span>
-          </td>
-          <td class="px-10 py-1 font-semibold text-center text-white">
-            @if ($attendance->status == "hadir")
-              <span class="block w-full py-1 bg-green-500 rounded-full">
-            @else
-              @if ($attendance->status == "izin")
-                <span class="block w-full py-1 bg-blue-400 rounded-full">
-              @else
-                <span class="block w-full py-1 bg-red-400 rounded-full">
-              @endif
-            @endif            
-              {{ $attendance->status }}
-            </span>
-          </td>
+  <div class="w-full overflow-x-auto">
+    <table class="w-10/12 mx-auto table-fix">
+      <thead class="justify-between">
+        <tr class="font-semibold text-white bg-pink-400">
+          <th class="w-1/4 px-16 py-2">
+            Tanggal
+          </th>
+          <th class="w-2/4 px-16 py-2">
+            Judul materi
+          </th>
+          <th class="w-1/4 px-16 py-2">
+            Status
+          </th>
         </tr>
-      @endforeach
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="bg-gray-200">
+        @if (!count($attendances))
+          <tr>
+            <td colspan="3" class="py-4 text-center bg-white">Belum ada data</td>
+          </tr>
+        @endif
+        @foreach ($attendances as $attendance)
+          <tr class="bg-white border-b-2 border-gray-200">
+            <td class="px-2 py-2 text-center">
+              <span>{{ date_format(date_create($attendance->time), 'd M Y') }}</span>
+            </td>
+            <td class="px-2 py-2">
+              <span>{{ $attendance->topic }}: {{ $attendance->sub_topic }}</span>
+            </td>
+            <td class="px-10 py-1 font-semibold text-center text-white">
+              @if ($attendance->status == "hadir")
+                <span class="block w-full py-1 bg-green-500 rounded-full">
+              @else
+                @if ($attendance->status == "izin")
+                  <span class="block w-full py-1 bg-blue-400 rounded-full">
+                @else
+                  <span class="block w-full py-1 bg-red-400 rounded-full">
+                @endif
+              @endif            
+                {{ $attendance->status }}
+              </span>
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
 </x-card>
 @endsection

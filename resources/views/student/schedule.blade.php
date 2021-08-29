@@ -29,7 +29,7 @@
         >{{$i}}</span>
       @endfor
     </div> --}}
-    <div class="flex flex-col mt-8">
+    <div class="w-full overflow-x-auto">
       <table class="w-full mx-auto table-auto table-stripped">
         <thead class="justify-between">
           <tr class="bg-pink-400">

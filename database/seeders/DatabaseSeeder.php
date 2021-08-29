@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
           // AttendanceSeeder::class,
           ModuleSeeder::class,
           ActivitySeeder::class,
-          ExamSeeder::class
+          ExamSeeder::class,
+          // Season4StudentData::class
       ]);
     }
 }
