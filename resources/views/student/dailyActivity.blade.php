@@ -59,14 +59,15 @@
       </table>
   </x-card>
 
-  <x-card title="Ringkasan Amalan Harian">
+  <x-card title="Ringkasan Amalan Harian" class="">
     <div class="text-center">
       <a href="{{ route('daily_activity.create') }}" class="block mx-auto mb-8">
         <x-button><span class="mr-1 icon-add"></span>isi form</x-button>
       </a>
     </div>
     
-    <table class="border table-fixed">
+    <div class="w-full overflow-x-scroll">
+    <table class="border table-fixed min-w-max">
       <thead>
         <tr>
           <th class="w-1/3 border" rowspan="2">Amalan</th>
@@ -98,6 +99,7 @@
         @endforeach
       </tbody>
     </table>
+    </div>
   </x-card>
 @endsection
 
