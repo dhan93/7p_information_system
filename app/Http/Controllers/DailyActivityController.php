@@ -19,15 +19,50 @@ class DailyActivityController extends Controller
      */
     public function index()
     {
+      $day = 1;
+      $month = 9;
+      $year = 2021;
+      $interval = 15;
+
+      $date_start = date("Y-m-d",mktime(0,0,0,$month,$day,$year));
+      $date_end = date("Y-m-d",mktime(0,0,0,$month,$day+$interval,$year));
+      
       $userActivities = UserActivity::where('user_id', Auth::user()->id)
         ->where('course_id', Auth::user()->default_course)
+        ->whereBetween('date', [$date_start, $date_end])
         ->get();
-
+      // return $userActivities;
       $activityGroup = ActivityGroup::where('course_id', Auth::user()->default_course)
+        ->with('activities')
         ->get();
 
-      // return compact('activityGroup','userActivities');
-      return view('student.dailyActivity', compact('activityGroup','userActivities'));
+      $activitiesArray = [];
+      foreach ($userActivities as $userActivity) {
+        $data = array_column(json_decode($userActivity->activities, true), 'activities');
+        $activitiesArray[strval(substr($userActivity->date, 8,2))] = call_user_func_array('array_merge', $data);
+      }
+      
+      // return $activitiesArray;
+
+      $matrix = [];
+      foreach ($activityGroup as $group) {
+        foreach ($group->activities as $activity) {
+          $m_title = $activity->title;
+          $m_date = [];
+          for ($i=0; $i<$interval ; $i++) { 
+            $m_date[$day+$i] = false;
+            if (isset($activitiesArray[$day+$i])) {
+              if (in_array($activity->id, $activitiesArray[$day+$i])) {
+                $m_date[$day+$i] = true;
+              }
+            }
+          }
+          array_push($matrix, ['title'=>$m_title, 'date'=>$m_date]);
+        }
+      }
+
+      // return compact('matrix');
+      return view('student.dailyActivity', compact('activityGroup','userActivities', 'matrix'));
     }
 
     /**

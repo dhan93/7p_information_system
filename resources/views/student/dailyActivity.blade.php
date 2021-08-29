@@ -3,7 +3,7 @@
 @section('page_title', 'Amalan Harian')
 
 @section('main')
-  <x-card title="Ringkasan Amalan Harian" class="w-full overflow-x-auto">
+  <x-card title="Ringkasan Amalan Harian" class="hidden w-full overflow-x-auto">
     <div class="text-center">
       <a href="{{ route('daily_activity.create') }}" class="block mx-auto mb-8">
         <x-button><span class="mr-1 icon-add"></span>isi form</x-button>
@@ -57,6 +57,47 @@
           @endforeach
         </tbody>
       </table>
+  </x-card>
+
+  <x-card title="Ringkasan Amalan Harian">
+    <div class="text-center">
+      <a href="{{ route('daily_activity.create') }}" class="block mx-auto mb-8">
+        <x-button><span class="mr-1 icon-add"></span>isi form</x-button>
+      </a>
+    </div>
+    
+    <table class="border table-fixed">
+      <thead>
+        <tr>
+          <th class="w-1/3 border" rowspan="2">Amalan</th>
+          <th class="border" colspan="15">September</th>
+        </tr>
+        <tr>
+          @for ($i = 1; $i <= 15; $i++)
+            <th class="border">{{$i}}</th>
+          @endfor
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($activityGroup as $group)
+            <tr>
+              <td class="text-sm font-semibold text-center bg-pink-200 border" colspan="16">{{$group->title}}</td>
+            </tr>
+            @foreach ($group->activities as $activity)
+              <tr>
+                <td class="px-2 py-1 border">{{$activity->title}}</td>
+                @foreach ($matrix[$loop->index]['date'] as $item)
+                  <td class="text-center border">
+                    @if ($item)
+                      <span class="icon-check"></span>    
+                    @endif
+                  </td>
+                @endforeach
+              </tr>
+            @endforeach
+        @endforeach
+      </tbody>
+    </table>
   </x-card>
 @endsection
 

@@ -45,7 +45,7 @@
         </div>
       </div>
       <ul class="text-left md:pl-2" x-show="profileMenuOpen">
-        <li class="mt-2"><a href=""><span class="icon-settings"></span> Edit profil</a></li>
+        {{-- <li class="mt-2"><a href=""><span class="icon-settings"></span> Edit profil</a></li> --}}
         <li class="mt-1">
           <a href="{{route('logout')}}" onclick="event.preventDefault(); getElementById('logouter').submit();">
             <span class="icon-logout"></span> Logout
