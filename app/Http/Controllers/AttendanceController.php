@@ -27,9 +27,10 @@ class AttendanceController extends Controller
         
       $attendances = Attendance::join('schedules', 'attendances.schedule_id', '=', 'schedules.id')
         ->where('course_id', Auth::user()->default_course)
+        ->where('user_id', '=', Auth::id())
         ->orderBy('schedules.time')
         ->get();
-
+        
       $filledSchedules = [];
 
       foreach ($attendances as $attendance) {
