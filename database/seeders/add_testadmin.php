@@ -15,10 +15,10 @@ class add_testadmin extends Seeder
     public function run()
     {
       User::create([
-        'name' => 'The Admin',
-        'email' => 'admin@admin.com',
-        'phone' => '628161170961',
-        'password' => bcrypt('password'),
+        'name' => 'Fitri',
+        'email' => 'nufia@live.com',
+        'phone' => '6281288261037',
+        'password' => bcrypt('181905fad'),
         'role_id' => 2,
       ]);
       $siswa = User::create([

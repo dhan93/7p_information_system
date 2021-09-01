@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
           insert_admin_and_siswa_roles::class,
           add_testadmin::class,   
           // AttendanceSeeder::class,
-          ModuleSeeder::class,
+          // ModuleSeeder::class,
           ActivitySeeder::class,
           ExamSeeder::class,
-          // Season4StudentData::class
+          Season4StudentData::class
       ]);
     }
 }

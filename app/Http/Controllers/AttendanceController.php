@@ -21,7 +21,7 @@ class AttendanceController extends Controller
     {
       $schedules = DB::table('schedules')
         ->where('course_id', '=', Auth::user()->default_course)
-        ->where('time', '<', NOW())
+        ->where('time', '<=', NOW())
         ->select('id', 'topic', 'sub_topic')
         ->get();
         

@@ -27,7 +27,7 @@ class ScheduleController extends Controller
       $nextSchedules = array_filter(
         $schedules->toArray(), 
         function ($schedule) {
-          return $schedule['time'] > date("Y-m-d H:i:s");
+          return $schedule['time'] >= date("Y-m-d H:i:s");
         }
       );
 
