@@ -18,7 +18,7 @@
   {{-- <script src="{{ (env('APP_ENV') === 'development') ? mix('js/app.js') : asset('js/app.js') }}"></script> --}}
 </head>
 <body class="grid content-center justify-center w-screen min-h-screen px-3 font-sans antialiased text-gray-600 md:h-screen sm:grid-cols-4 sm:grid-rows-4 lg:grid-cols-6 2xl:grid-cols-8 bg-gradient-to-br from-pink-300 via-pink-300 to-pink-400">
-  <form method="POST" class="flex flex-col sm:row-span-2 sm:row-start-2 sm:col-span-2 sm:col-start-2 lg:col-start-3 2xl:col-start-4" action="{{ route('login') }}">
+  <form method="POST" class="flex flex-col sm:row-span-2 sm:row-start-2 sm:col-span-2 sm:col-start-2 lg:col-start-3 2xl:col-start-4" action="{{ route('login') }}" onsubmit="return submitForm()">
     <picture class="w-full">
       <source srcset="{{ asset('images/logo_7_Perempuan_putih.webp') }}" type="image/webp">
       <source srcset="{{ asset('images/logo_7_Perempuan_putih.png') }}" type="image/png"> 
@@ -45,10 +45,12 @@
         <x-label for="password" :value="__('Password')" class="text-sm font-medium" />
 
         <x-input id="password" class="block w-full mt-1"
-                        type="password"
-                        name="password"
-                        value=""
-                        required autocomplete="current-password" />
+          type="password"
+          name="password"
+          value=""
+          required autocomplete="current-password" />
+
+        <x-checkbox onclick="showPassword()" name="show_password" label="Show Password" />
     </div>
 
     <!-- Remember Me -->
@@ -71,4 +73,21 @@
         </x-button>
     </div>
   </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      document.getElementById("show_password").checked = false;
+    });
+    function showPassword() {
+      var x = document.getElementById("password");
+      if (document.getElementById("show_password").checked) {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    } 
+    function submitForm() {
+      document.getElementById("password").type = "password";
+    }
+  </script>
 </body>

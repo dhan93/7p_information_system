@@ -9,4 +9,5 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'ismanagement'])->gr
 
   Route::resource('course', 'App\Http\Controllers\Admin\CourseController');
   Route::resource('schedule', 'App\Http\Controllers\Admin\ScheduleController');
+  Route::resource('user', 'App\Http\Controllers\Admin\UserController');
 });

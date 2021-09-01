@@ -12,6 +12,7 @@
   $adminMenu = [
     ['title'=>'Kelas', 'target'=>route('admin.course.index'), 'icon' => 'icon-bookmark'],
     ['title'=>'Jadwal', 'target'=>route('admin.schedule.index'), 'icon' => 'icon-schedule'],
+    ['title'=>'Tambah Siswa', 'target'=>route('admin.user.create'), 'icon' => 'icon-person_add'],
     // ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
     // ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],
     // ['title'=>'Amalan Harian', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
