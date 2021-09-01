@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+  return $request->user();
+});
 
 // Route::get('/dashboard', function () {
 //     return view('student.dashboard');
@@ -28,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
 
   Route::post('/user/change_course', ['App\Http\Controllers\UserController', 'courseChanger'])
     ->name('changeCourse');
+
+  // Route::get('/cobaapi', function () {
+  //   return view('api');
+  // });
 });
 
 
