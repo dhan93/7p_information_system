@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('page_title'){{ config('app.name', 'Laravel') }}</title>
+  <title>@yield('page_title')Login Sistem Informasi Sekolah 7 Perempuan</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
