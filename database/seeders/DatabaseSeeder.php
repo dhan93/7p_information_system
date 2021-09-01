@@ -18,15 +18,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       $this->call([
-          // CoursesSeeder::class,
-          // ScheduleSeeder::class,
-          // insert_admin_and_siswa_roles::class,
-          // add_testadmin::class,   
-          // // AttendanceSeeder::class,
-          // // ModuleSeeder::class,
-          // ActivitySeeder::class,
-          // ExamSeeder::class,
-          // Season4StudentData::class
+          CoursesSeeder::class,
+          ScheduleSeeder::class,
+          insert_admin_and_siswa_roles::class,
+          add_testadmin::class,   
+          // AttendanceSeeder::class,
+          // ModuleSeeder::class,
+          ActivitySeeder::class,
+          ExamSeeder::class,
+          Season4StudentData::class
       ]);
     }
 }

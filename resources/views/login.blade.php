@@ -60,11 +60,11 @@
     </div>
 
     <div class="flex items-center justify-end mt-4">
-        @if (Route::has('password.request'))
+        {{-- @if (Route::has('password.request'))
             <a class="text-sm text-gray-600 underline hover:text-gray-900" href="https://wa.me/6285693935273?text=Assalamu%27alaykum%20admin%2C%20tolong%20bantu%20saya%20untuk%20reset%20password.%20%0ATerima%20kasih..">
                 {{ __('Forgot your password?') }}
             </a>
-        @endif
+        @endif --}}
 
         <x-button class="ml-3" type="submit">
             Log in
