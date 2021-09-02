@@ -35,9 +35,19 @@
             <span class="mr-1 icon-eye"></span>lihat materi
           </x-button>
         </a> --}}
-        <a class="mt-2" href="{{$module->attachment}}">
+        <a class="mt-2" href="{{$module->attachment}}" target="_blank">
           <x-button class="text-xs">
-            <span class="mr-1 icon-file-pdf-o"></span>download materi
+            @switch($module->type)
+                @case('audio')
+                  <span class="mr-1 icon-file-pdf-o"></span>
+                @break
+                @case('video')
+                  <span class="mr-1 icon-file-movie-o"></span>
+                @break
+                @default
+                  <span class="mr-1 icon-file-audio-o"></span>
+            @endswitch
+            buka materi
           </x-button>
         </a>
       </div>

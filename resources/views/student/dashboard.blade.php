@@ -11,6 +11,9 @@
       Silakan akses halaman-halaman berikut untuk mengenal Sekolah 7 Perempuan lebih jauh.
     </p>
     <div class="xl:grid xl:grid-cols-2 xl:gap-2">
+      <x-link-list href="Tentang Sekolah 7 Perempuan" target="_blank" thumbnail="about-s7p-thumb.png">
+        Tentang Sekolah 7 Perempuan <span class="icon-launch"></span>
+      </x-link-list>
       <x-link-list href="https://youtu.be/hOQR_GsQ8e4" target="_blank" thumbnail="video-management-thumb.png">
         Perkenalan Manajemen Sekolah 7 Perempuan <span class="icon-launch"></span>
       </x-link-list>
