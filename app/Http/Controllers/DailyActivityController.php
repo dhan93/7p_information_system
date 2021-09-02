@@ -35,11 +35,11 @@ class DailyActivityController extends Controller
       $activityGroup = ActivityGroup::where('course_id', Auth::user()->default_course)
         ->with('activities')
         ->get();
-
+      
       $activitiesArray = [];
       foreach ($userActivities as $userActivity) {
         $data = array_column(json_decode($userActivity->activities, true), 'activities');
-        $activitiesArray[strval(substr($userActivity->date, 8,2))] = call_user_func_array('array_merge', $data);
+        $activitiesArray[intval(substr($userActivity->date, 8,2))] = call_user_func_array('array_merge', $data);
       }
       
       // return $activitiesArray;
@@ -50,10 +50,12 @@ class DailyActivityController extends Controller
           $m_title = $activity->title;
           $m_date = [];
           for ($i=0; $i<$interval ; $i++) { 
-            $m_date[$day+$i] = false;
-            if (isset($activitiesArray[$day+$i])) {
-              if (in_array($activity->id, $activitiesArray[$day+$i])) {
-                $m_date[$day+$i] = true;
+            // $key = str_pad($day+$i,2,"0",STR_PAD_LEFT);
+            $key = $day+$i;
+            $m_date[$key] = 'false';
+            if (isset($activitiesArray[$key])) {
+              if (in_array($activity->id, $activitiesArray[$key])) {
+                $m_date[$key] = 'true';
               }
             }
           }
@@ -62,6 +64,7 @@ class DailyActivityController extends Controller
       }
 
       // return compact('matrix');
+      // return $matrix[0]['date'][2];
       return view('student.dailyActivity', compact('activityGroup','userActivities', 'matrix'));
     }
 

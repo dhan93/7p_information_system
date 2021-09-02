@@ -3,7 +3,7 @@
 @section('page_title', 'Amalan Harian')
 
 @section('main')
-  <x-card title="Ringkasan Amalan Harian" class="w-full overflow-x-auto">
+  <x-card title="Ringkasan Amalan Harian" class="hidden w-full overflow-x-auto">
     <div class="text-center">
       <a href="{{ route('daily_activity.create') }}" class="block mx-auto mb-8">
         <x-button><span class="mr-1 icon-add"></span>isi form</x-button>
@@ -59,7 +59,7 @@
       </table>
   </x-card>
 
-  <x-card title="Ringkasan Amalan Harian" class="hidden">
+  <x-card title="Ringkasan Amalan Harian" class="">
     <div class="text-center">
       <a href="{{ route('daily_activity.create') }}" class="block mx-auto mb-8">
         <x-button><span class="mr-1 icon-add"></span>isi form</x-button>
