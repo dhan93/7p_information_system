@@ -17,6 +17,8 @@ class CreateAssignmentUserTable extends Migration
             $table->string('id', 12)->unique()->comment('assignmentId_userId');
             $table->unsignedInteger('assignment_id');
             $table->foreignId('user_id')->constrained();
+            $table->boolean('status');
+            $table->timestamps();
 
             $table->foreign('assignment_id')->references('id')->on('assignments');
         });

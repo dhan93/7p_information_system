@@ -11,7 +11,8 @@ class Assignment extends Model
 
     protected $fillable = [
       'schedule_id',
-      'title'
+      'title', 
+      'status'
     ];
 
     public function Users()
