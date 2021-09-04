@@ -17,7 +17,7 @@ class Assignment extends Model
 
     public function Users()
     {
-      return $this->belongsToMany(User::class)->withPivot('id')->withTimestamps();
+      return $this->belongsToMany(User::class)->withPivot('id');
     }
 
     public function Schedule()

@@ -5,7 +5,7 @@
     ['title'=>'Absensi', 'target'=>route('attendance.index'), 'icon' => 'icon-event_available'],
     ['title'=>'Materi', 'target'=>route('module.index'), 'icon' => 'icon-book'],
     ['title'=>'Amalan Harian', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
-    // ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
+    ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
     ['title'=>'Evaluasi', 'target'=>route('exam.index'), 'icon' => 'icon-create'],
     ['title'=>'Bantuan', 'target'=>route('guide.index'), 'icon' => 'icon-contact_support']
   ];
@@ -59,7 +59,7 @@
   @endauth
   <ul class="md:pl-2 sm:grid sm:grid-cols-2 md:block">
     @foreach ($menus as $menu)
-      <li class="my-1 text-lg">
+      <li class="my-1 text-lg hover:text-gray-900">
         <a href="{{ $menu['target'] }}">
           <span class="{{ $menu['icon'] }}"></span> {{ $menu['title'] }}
         </a>
