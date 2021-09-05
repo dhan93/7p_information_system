@@ -73,6 +73,8 @@
       <x-textarea class="w-full" name="note" maxlength="255" >
         @if (isset($userActivityData))
           {!!$userActivityData->note!!}
+        @else
+          {{''}}
         @endif
       </x-textarea>
     </div>
