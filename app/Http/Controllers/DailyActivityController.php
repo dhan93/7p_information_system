@@ -31,6 +31,7 @@ class DailyActivityController extends Controller
       $userActivities = UserActivity::where('user_id', Auth::user()->id)
         ->where('course_id', Auth::user()->default_course)
         ->whereBetween('date', [$date_start, $date_end])
+        ->orderBy('date')
         ->get();
 
       // return $userActivities;
