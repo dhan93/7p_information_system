@@ -91,7 +91,7 @@
               <span>{{ date_format(date_create($attendance->time), 'd M Y') }}</span>
             </td>
             <td class="px-2 py-2">
-              <span>{{ $attendance->topic }}: {{ $attendance->sub_topic }}</span>
+              <span>{{ $attendance->topic }}{{ $attendance->sub_topic ? ': '.$attendance->sub_topic : ''}}</span>
             </td>
             <td class="px-10 py-1 font-semibold text-center text-white">
               @if ($attendance->status == "hadir")

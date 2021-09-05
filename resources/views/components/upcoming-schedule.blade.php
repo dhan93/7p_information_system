@@ -12,9 +12,9 @@
       @endif
     ">
     <div class="flex flex-col col-span-1 mb-2 text-center sm:mb-0">
-      <span class="text-lg leading-none">{{ date_format($itemDate, 'l')}}</span>
+      <span class="text-lg leading-none">{{ __('time.'.date_format($itemDate, 'l'))}}</span>
       <span class="text-6xl leading-none text-pink-400">{{ date_format($itemDate, 'd')}}</span>
-      <span class="text-lg leading-none">{{ date_format($itemDate, 'F')}}</span>
+      <span class="text-lg leading-none">{{ __('time.'.date_format($itemDate, 'F'))}}</span>
     </div>
     <div class="flex flex-col col-span-1 text-center sm:col-span-3 sm:text-left">
       <span class="text-2xl font-semibold leading-tight text-pink-400 md:text-3xl">
