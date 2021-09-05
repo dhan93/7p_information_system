@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use App\Models\UserActivity;
 use App\Models\ActivityGroup;
 
@@ -31,6 +32,7 @@ class DailyActivityController extends Controller
         ->where('course_id', Auth::user()->default_course)
         ->whereBetween('date', [$date_start, $date_end])
         ->get();
+
       // return $userActivities;
       $activityGroup = ActivityGroup::where('course_id', Auth::user()->default_course)
         ->with('activities')
@@ -78,8 +80,8 @@ class DailyActivityController extends Controller
       $activities = ActivityGroup::with('activities')
         ->where('course_id', '=', Auth::user()->default_course)
         ->get();
-      // return $activities;
-      return view('student.dailyActivityCreate', compact('activities'));
+      $userActivityArray = [];
+      return view('student.dailyActivityCreate', compact('activities', 'userActivityArray'));
     }
 
     /**
@@ -168,7 +170,25 @@ class DailyActivityController extends Controller
      */
     public function edit($id)
     {
-        //
+      $activities = ActivityGroup::with('activities')
+        ->where('course_id', '=', Auth::user()->default_course)
+        ->get();
+
+      $userActivityData = UserActivity::select('id', 'activities', 'date', 'note')
+        ->find($id);
+
+      // $date = $userActivities->date;
+      
+      $userActivities = json_decode($userActivityData->activities);
+
+      $userActivityArray = [];
+      foreach ($userActivities as $i) {
+        foreach ($i->activities as $j) {
+          array_push($userActivityArray, $j);
+        }
+      }
+
+      return view('student.dailyActivityCreate', compact('activities', 'userActivityArray', 'userActivityData'));      
     }
 
     /**
@@ -180,7 +200,55 @@ class DailyActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // return $request;
+      $activitiesArray = [];
+      $activities_done = 0;
+
+      $checkbox = $request->checkbox;
+      
+      if ($checkbox) {
+        foreach ($checkbox as $group => $items) {
+          $activityGroup = $group;
+          $activities = [];
+          foreach ($items as $item) {
+            array_push($activities, intval($item));
+            $activities_done += 1;
+          }
+          array_push($activitiesArray, ['activity_group'=>$activityGroup, 'activities'=>$activities]);
+        }
+      }
+
+      $radio = $request->radio;
+      if ($radio) {
+        foreach ($radio as $group => $item) {
+          if (intval($item) != 0) {
+            array_push($activitiesArray, ['activity_group'=>$group, 'activities'=>intval($item)]);
+          }
+          $activities_done += 1;
+        }
+      }      
+
+      $data = [
+        'activities' => json_encode($activitiesArray),
+        'note' => $request->note,
+        'activities_done' => $activities_done,
+        'total_activities' => $request->total_activities,
+      ];
+
+      $rules = [];
+
+      $errorMessage = [];
+
+      // $validated = Validator::make($data, $rules, $errorMessage)->validate();
+
+      // if ($validated) {
+        $storedData = UserActivity::where('id', '=', $id)
+          ->update($data);
+      // }
+      // return $storedData;
+      if($storedData) {
+        return redirect(route('daily_activity.index'))->with('status', 'Data telah diperbarui');
+      };
     }
 
     /**
