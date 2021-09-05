@@ -17,7 +17,7 @@ class ModuleController extends Controller
     {
       $modules = Module::join('schedules', 'modules.schedule_id', '=', 'schedules.id')
         ->where('schedules.course_id', Auth::user()->default_course)
-        ->where('schedules.time', '<', date("Y-m-d H:i:s"))
+        // ->where('schedules.time', '<', date("Y-m-d H:i:s"))
         ->orderBy('schedules.time')
         ->get();
       // return $modules;
