@@ -71,6 +71,8 @@ class UserController extends Controller
         "default_course"=>4
       ]);
 
+      $user->courses()->attach(4, ['id'=>'4_'.$user->id]);
+
       if ($user) {
         return back()->with('status', 'Akun baru berhasil ditambahkan');
       }

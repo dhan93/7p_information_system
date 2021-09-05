@@ -204,7 +204,7 @@ class Season4StudentData extends Seeder
 
       for ($i=$first->id; $i <= $last->id; $i++) { 
         DB::table('course_user')->insert(
-          ['id'=>$i.'_2','user_id'=>$i, 'course_id'=>1]
+          ['id'=>'4_'.$i,'user_id'=>$i, 'course_id'=>4]
         );
       }
     }

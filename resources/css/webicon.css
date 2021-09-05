@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('/fonts/icomoon.eot?bn0nil');
-  src:  url('/fonts/icomoon.eot?bn0nil#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?bn0nil') format('truetype'),
-    url('/fonts/icomoon.woff?bn0nil') format('woff'),
-    url('/fonts/icomoon.svg?bn0nil#icomoon') format('svg');
+  src:  url('/fonts/icomoon.eot?98o7he');
+  src:  url('/fonts/icomoon.eot?98o7he#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?98o7he') format('truetype'),
+    url('/fonts/icomoon.woff?98o7he') format('woff'),
+    url('/fonts/icomoon.svg?98o7he#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,10 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-menu:before {
-  content: "\e900";
+.icon-file-audio-o:before {
+  content: "\e91d";
 }
-
 .icon-eye:before {
   content: "\e912";
 }
@@ -49,6 +48,12 @@
 }
 .icon-user-circle-o:before {
   content: "\e902";
+}
+.icon-person_add:before {
+  content: "\e91b";
+}
+.icon-bookmark:before {
+  content: "\e91a";
 }
 .icon-circle:before {
   content: "\e91c";
@@ -124,4 +129,7 @@
 }
 .icon-keyboard_arrow_down:before {
   content: "\e903";
+}
+.icon-menu:before {
+  content: "\e900";
 }
