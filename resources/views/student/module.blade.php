@@ -39,13 +39,13 @@
           <x-button class="text-xs">
             @switch($module->type)
                 @case('audio')
-                  <span class="mr-1 icon-file-pdf-o"></span>
+                  <span class="mr-1 icon-file-audio-o"></span>
                 @break
                 @case('video')
                   <span class="mr-1 icon-file-movie-o"></span>
                 @break
                 @default
-                  <span class="mr-1 icon-file-audio-o"></span>
+                  <span class="mr-1 icon-file-pdf-o"></span>
             @endswitch
             buka materi
           </x-button>
