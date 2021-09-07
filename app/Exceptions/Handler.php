@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Exception;
 
 class Handler extends ExceptionHandler
 {
@@ -37,5 +38,13 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+        $this->renderable(function (Exception $e, $request) {
+          if ($e->getPrevious() instanceof \Illuminate\Session\TokenMismatchException) {
+              return redirect()
+              ->back()
+              ->withInput($request->except('password', 'password_confirmation', '_token'))
+              ->withErrors(['Data belum berhasil disimpan, silakan coba simpan ulang']);
+          }
+      });
     }
 }
