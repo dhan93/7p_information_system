@@ -21,6 +21,17 @@ class ModuleController extends Controller
         ->orderBy('schedules.time')
         ->get();
       // return $modules;
+      $scheduleId = 0;
+      $groupedModule = [];
+      foreach ($modules as $item) {
+        if ($item->schedule_id != $scheduleId) {
+          $scheduleId += 1;
+          $groupedModule[$scheduleId] = [];
+        } 
+        array_push($groupedModule[$scheduleId], $item);
+      }
+      $modules = $groupedModule;
+      // return $modules;
       return view('student.module', compact('modules'));
     }
 
