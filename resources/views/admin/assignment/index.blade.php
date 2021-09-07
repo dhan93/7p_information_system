@@ -4,6 +4,12 @@
 
 @section('main')
   <x-card title="Daftar Penugasan" >
+    <div class="block pb-4 text-center">
+      <a href="{{route('admin.assignment.create')}}" class="inline-block px-4 py-2 text-sm font-semibold text-center text-white bg-green-500 rounded-md hover:bg-green-400">
+        <span class="icon-add"></span> Tambah Penugasan
+      </a>
+    </div>
+    
     <div class="w-full overflow-x-auto">
       <table class="w-full mx-auto table-auto md:max-w-md lg:max-w-xl xl:max-w-4xl min-w-min md:min-w-0">
         <thead>
@@ -25,9 +31,9 @@
                 </td>
                 <td class="p-2 text-center">{{$assignment->course->generation}}</td>
                 <td class="p-2 text-center">
-                  <a href="{{route('admin.assignment.show',$item->id)}}">
+                  <a href="{{route('admin.assignment.edit',$item->id)}}">
                     <x-button>
-                      lihat
+                      <span class="mr-2 icon-edit"></span>edit
                     </x-button>
                   </a>
                 </td>

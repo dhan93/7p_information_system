@@ -97,7 +97,13 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        //
+      $assignment = Assignment::find($id);
+      // return $assignment;
+      $schedules = Schedule::select('id', 'topic', 'sub_topic')
+        ->where('course_id', '=', 4)
+        ->get();
+
+      return view('admin.assignment.edit', compact('assignment', 'schedules'));
     }
 
     /**
@@ -109,7 +115,35 @@ class AssignmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $rules = [
+        // title
+        'title' => 'required',
+        // schedule_id
+        'schedule_id' => 'required|numeric|exists:schedules,id',
+      ];
+
+      $errorMessage = [
+        'required' => 'Kolom :attribute harus diisi.',
+        'numeric' => 'Kolom :attribute harus berupa angka',
+        'exists' => 'Kolom :attribute tidak valid',
+      ];
+
+      $attributes = [
+        'title' => 'JUDUL',
+        'schedule_id' => 'JADWAL',
+      ];
+
+      $validated = Validator::make($request->all(), $rules, $errorMessage, $attributes)->validate();
+
+      $storedData = Assignment::find($id)
+        ->update([
+          'title' => $validated['title'],
+          'schedule_id' => $validated['schedule_id'],
+        ]);
+
+      if($storedData) {
+        return redirect(route('admin.assignment.index'))->with('status', 'Tugas '.$request->title.' berhasil diperbarui');
+      };
     }
 
     /**
