@@ -17,7 +17,7 @@
       <x-link-list href="https://youtu.be/hOQR_GsQ8e4" target="_blank" thumbnail="video-management-thumb.png">
         Perkenalan Manajemen Sekolah 7 Perempuan <span class="icon-launch"></span>
       </x-link-list>
-      <x-link-list href="https://dl.dropboxusercontent.com/s/j8t9jqg9w6m30yo/Silabus%207PS4%20rev.1.pdf?dl=0" target="_blank" thumbnail="silabus-thumb.png">
+      <x-link-list href="https://dl.dropboxusercontent.com/s/pnvzcpgn3bghi0x/Silabus%207PS4%20rev.2.1.pdf?dl=0" target="_blank" thumbnail="silabus-thumb.png">
         Silabus Sekolah 7 Perempuan <span class="icon-launch"></span>
       </x-link-list>
       <x-link-list href="https://dl.dropboxusercontent.com/s/6dfggt0prek4dj5/SOP%207PS4.pdf?dl=0" target="_blank" thumbnail="SOP-thumb.png">
