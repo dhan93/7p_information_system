@@ -65,6 +65,7 @@
       @endif
       @yield('main')
     </main>
+    @yield('bottom-js')
   </div>
   
   <!-- icomoon -->

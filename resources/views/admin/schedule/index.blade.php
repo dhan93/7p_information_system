@@ -35,12 +35,12 @@
                   @foreach ($schedule->scheduleLinks as $link)
                     @if ($loop->first)
                       <a href="{{$link->link}}" class="block">
-                        : <span class="underline">{{$link->channel}}</span>
+                        : <span class="underline capitalize">{{$link->channel}}</span>
                          {{-- ({{$link->link}}) --}}
                       </a>
                     @else
                       <a href="{{$link->link}}" class="block ml-2">
-                        <span class="underline">{{$link->channel}}</span>
+                        <span class="underline capitalize">{{$link->channel}}</span>
                          {{-- ({{$link->link}}) --}}
                       </a>
                     @endif
