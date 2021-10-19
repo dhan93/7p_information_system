@@ -55,7 +55,7 @@
       </div>
       @if(session('status'))
         <div class="p-2 text-center text-white bg-green-400 rounded-md">
-          {{ session('status') }}
+          {{ session('error') }}
         </div>
       @endif
       @if(session('warning'))
