@@ -7,6 +7,7 @@
     ['title'=>'Amalan Harian', 'target'=>route('daily_activity.index'), 'icon' => 'icon-check-square-o'],
     ['title'=>'Penugasan', 'target'=>route('assignment.index'), 'icon' => 'icon-assignment'],
     ['title'=>'Evaluasi', 'target'=>route('exam.index'), 'icon' => 'icon-create'],
+    ['title'=>'Report', 'target'=>route('report'), 'icon' => 'icon-bookmark'],
     ['title'=>'Bantuan', 'target'=>route('guide.index'), 'icon' => 'icon-contact_support']
   ];
   $adminMenu = [

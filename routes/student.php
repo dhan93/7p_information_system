@@ -17,4 +17,5 @@ Route::middleware(['auth','isstudent'])->group(function () {
   Route::resource('assignment', 'App\Http\Controllers\AssignmentController');    
   Route::resource('exam', 'App\Http\Controllers\ExamController');
   Route::resource('guide', 'App\Http\Controllers\UserGuideController');
+  Route::get('/report', ['App\Http\Controllers\ReportController', 'index'])->name('report');
 });

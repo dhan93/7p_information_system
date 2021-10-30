@@ -1,0 +1,301 @@
+@font-face {
+  font-family: femina;
+  src: url('../fonts/Femina.ttf');
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html,
+body {
+  height: 100%;
+  min-width: 330px
+}
+
+body {
+  background-image: url('../images/transparent_logo.png'), linear-gradient(to right bottom, rgba(254,198,234,0.46), rgba(255,255,255,0.46)), url('../images/bg.png');
+  background-position: center, center, center;
+  background-size: auto 80%, contain, cover;
+  background-repeat: no-repeat ;
+  background-attachment: fixed;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.modal-header {
+  background: rgb(235,156,172,0.2);
+  background-image: linear-gradient(180deg, rgba(235,156,172,0.2) 0%, rgba(235,156,172,0.5) 90%), url('../images/bg.png');
+  background-size: contain;
+}
+
+#previewModalLabel {
+  color: #c83e6f;
+}
+
+#previewModal .modal-body {
+  background-color: #333;
+}
+
+.studentReportPreview {  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 320px;
+  height: 320px;
+}
+
+#certificatePreview {
+  /* background-image: url('../images/S7P3_Certificate_mockup.png'); */
+  background-image: url('../images/s7p_certificate_template.png');
+  color: #e15787;
+  font-size: 22pt;
+  padding-top: 169px;
+  margin-bottom: 10px
+}
+
+#certificateReg {
+  font-family: Roboto;
+  font-weight: bold;
+  font-style: italic;
+  color: #a88136;
+  font-size: 4pt;
+  top: 27px;
+  left: 29px;
+}
+
+#reportPreview {
+  /* background-image: url('../images/S7P3_Raport_mockup.png'); */
+  background-image: url('../images/s7p_raport_template.png');
+}
+
+#reportReg {
+  color: #ffffff;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 4.5pt;
+  top: 88px;
+  left: 58px;
+}
+
+#reportName {
+  color: #444;
+  left: 26px;
+  font-size: 21px;
+  top: 155px;
+  width: 137px;
+}
+
+#reportScoreWrapper {
+  color: #333333;
+  font-family: 'Roboto';
+  /* background-image: url('../images/failed.png'); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 100%;
+  top: 195px;
+  left: 27px;
+  width: 135px;
+  height: 43px;
+}
+
+/* #reportScoreWrapper.isPass {
+  background-image: url('../images/passed.png');
+} */
+
+#reportScore {
+  top: -7px;
+  left: 99px;
+  font-size: 7px;
+  /* font-style: italic; */
+}
+
+@media screen and (min-width: 576px) { 
+  .studentReportPreview {
+    width: 540px;
+    height: 540px;
+  }
+  #certificatePreview {
+    font-size: 49px;
+    padding-top: 285px;
+  }
+  #certificateReg {
+    font-size: 7pt;
+    top: 49px;
+    left: 53px;
+  }
+  #reportReg {
+    font-size: 7.5pt;
+    top: 149px;
+    left: 99px;
+  }
+  #reportName {
+    font-size: 35px;
+    top: 262px;
+    width: 228px;
+    left: 45px;
+  }
+  #reportScoreWrapper {
+    top: 329px;
+    width: 229px;
+    height: 74px;
+    left: 44px;
+  }
+  #reportScore {
+    top: -12px;
+    left: 168px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .studentReportPreview {
+    width: 735px;
+    height: 735px;
+  }
+  #certificatePreview {
+    font-size: 67px;
+    padding-top: 388px;
+  }
+  #certificateReg {
+    font-size: 10pt;
+    top: 64px;
+    left: 72px;
+  }
+  #reportReg {
+    font-size: 10.5pt;
+    top: 202px;
+    left: 133px;
+  }
+  #reportName {
+    width: 312px;
+    top: 357px;
+    font-size: 47px;
+    left: 61px;
+  }
+  #reportScoreWrapper {
+    top: 448px;
+    width: 307px;
+    height: 101px;
+    left: 61px;
+  }
+  #reportScore {
+    top: -17px;
+    left: 227px;
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .studentReportPreview {
+    width: 960px;
+    height: 960px;
+  }
+  #certificatePreview {
+    font-size: 87px;
+    padding-top: 507px;
+  }
+  #certificateReg {
+    font-size: 15pt;
+    top: 84px;
+    left: 93px;
+  }
+  #reportReg {
+    font-size: 14.5pt;
+    top: 264px;
+    left: 172px;
+  }
+  #reportName {
+    width: 406px;
+    top: 465px;
+    font-size: 61px;
+    left: 80px;
+  }
+  #reportScoreWrapper {
+    top: 584px;
+    width: 402px;
+    height: 132px;
+    left: 79px;
+  }
+  #reportScore {
+    top: -20px;
+    left: 297px;
+    font-size: 21px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .studentReportPreview {
+    width: 1080px;
+    height: 1080px;
+  }
+  #certificatePreview {
+    font-size: 98px;
+    padding-top: 570px;
+  }
+  #certificateReg {
+    font-size: 17pt;
+    top: 95px;
+    left: 105px;
+  }
+  #reportReg {
+    font-size: 15.5pt;
+    top: 297px;
+    left: 194px;
+  }
+  #reportName {
+    font-size: 69px;
+    top: 525px;
+    width: 447px;
+    left: 91px;
+  }
+  #reportScoreWrapper {
+    top: 657px;
+    width: 453px;
+    height: 150px;
+    left: 90px;
+  }
+  #reportScore {
+    top: -24px;
+    left: 335px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .studentReportPreview {
+    width: 1366px;
+    height: 1366px;
+  }
+  #certificateReg {
+    font-size: 19pt;
+    top: 123px;
+    left: 141px;
+  }
+  #reportReg {
+    font-size: 19.5pt;
+    top: 374px;
+    left: 247px;
+  }
+  #certificatePreview {
+    font-size: 124px;
+    padding-top: 721px;
+  }
+  #reportName {
+    font-size: 83px;
+    top: 667px;
+    width: 574px;
+    left: 114px;
+  }
+  #reportScoreWrapper {
+    top: 832px;
+    width: 568px;
+    height: 189px;
+    left: 115px;
+  }
+  #reportScore {
+    top: -29px;
+    left: 423px;
+    font-size: 29px;
+  }
+}
